@@ -24,13 +24,14 @@ body {
   align-items: center;
   height: 100vh; 
   width: 100%; 
-  max-width: 500px;
-  border: 1px solid mediumblue;
+  max-width: 3500px;
+  border: 1px solid white;
   margin: auto;
 }
 
 header {
   width: 100%;
+  height: 10%;
   padding: 0 0.10em;
   background-color: lightseagreen;
   color: white;
