@@ -93,7 +93,7 @@ footer {
   color: #e9e9e9;
 }
 
-.topnav input[type=text] {
+.searchbar input[type=text] {
   float: right;
   padding: 6px;
   border: none;
@@ -102,6 +102,6 @@ footer {
   font-size: 17px;
 }
 
-.topnav input[type=text] {
+.searchbar input[type=text] {
   border: 1px solid #ccc;
 }
