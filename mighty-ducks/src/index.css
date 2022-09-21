@@ -52,6 +52,15 @@ footer {
   font-size: small;
 }
 
+.navbar-brand {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.2);
+}
+
 .searchbar input[type=text] {
   float: right;
   padding: 6px;
