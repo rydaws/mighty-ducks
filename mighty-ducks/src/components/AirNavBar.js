@@ -16,11 +16,16 @@ function AirNavBar() {
             alt="Logo"
             />
           </Navbar.Brand>
+          <Nav href="#home" className="navbar-title">
+            Travel Wizard
+          </Nav>
+          <Navbar.Collapse className="navbar-toggler">
           <Nav className="me-auto">
             <Nav.Link href="#about" className="navbar-links">About</Nav.Link>
             <Nav.Link href="#bookings" className="navbar-links">Bookings</Nav.Link>
             <Nav.Link href="#history" className="navbar-links">History</Nav.Link>
           </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
       <br />
