@@ -45,7 +45,7 @@ main {
 footer {
   width: 100%;
   padding: 0.25em;
-  background-color: lightseagreen;
+  background-color: var(--bs-primary);
   color: aliceblue;
   display: grid;
   place-content: center;

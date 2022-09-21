@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 function AirNavBar() {
   return (
     <>
-      <Navbar expand="md" sticky="top" bg="dark" variant="dark" collapseOnSelect>
+      <Navbar expand="md" sticky="top" bg="primary" variant="dark" collapseOnSelect>
         <Container>
           <Navbar.Brand href="#home" >
             <img
