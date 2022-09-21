@@ -31,17 +31,6 @@ body {
   margin: auto;
 }
 
-header {
-  height: 10%;
-  padding: 0 0.10em;
-  background-color: lightseagreen;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: medium;
-}
-
 main {
   width: 100%;
   height: 3000px;
@@ -61,63 +50,6 @@ footer {
   display: grid;
   place-content: center;
   font-size: small;
-}
-
-.Navbar {}
-
-.container { 
-  background-color: #414141; 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
-
-.navbar-brand {
-  text-decoration: none;
-  transition: 0.3s;
-  padding-top: 0.2rem;
-}
-
-.navbar-brand:hover {
-  transform: scale(1.2);
-}
-.navbar-links {
-  color: #ffffff8c;
-  text-decoration: none;
-  outline: none;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  transition: 0.3s
-}
-
-.navbar-links:hover{
-  color: #e9e9e9;
-}
-
-.navbar-title {
-  padding-left: 11rem;
-  color: #ffffff;
-  font-size: 1.2rem;
-  text-decoration: none;
-  outline: none;
-}
-
-.navbar-collapse {
-
-}
-
-.navbar-toggler-icon {
-  display: hidden;
-  background-color: #414141;
-  border: none;
-  width: 1.5rem;
-  height: 1.5rem;
-  vertical-align: middle;
-  background-image: url("../public/hamburger.svg");
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: 100%;
 }
 
 .searchbar input[type=text] {
