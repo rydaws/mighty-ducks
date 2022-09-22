@@ -1,4 +1,7 @@
-export const Content = () => {
+import React from "react"
+
+function Home() {
+    console.log("At Home");
     return (
         <main>
             <div class="searchbar">
@@ -6,5 +9,6 @@ export const Content = () => {
             <input type="text" placeholder="Departing from..."></input>
             </div>
         </main>
-    )
-}
+        );
+    }
+export default Home
