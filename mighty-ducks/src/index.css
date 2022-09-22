@@ -85,3 +85,112 @@ section {
   align-items: center;
   overflow-y: auto;
 }
+
+.styleAbout {
+  width:60%;
+  height:25%;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgb(197, 197, 197);
+  color: rgb(0, 0, 0);
+  position:absolute;
+  top: 100px
+}
+
+.imageBox{
+  
+  width: 250px;
+  height: 300px;
+  object-fit:cover;
+  display: flex;
+  position: absolute;
+  top: 400px;
+  left: 30px;
+}
+
+.imageBox2{
+  
+  width: 250px;
+  height: 300px;
+  object-fit:cover;
+  display: flex;
+  position: absolute;
+  top: 400px;
+  left: 450px;
+}
+.imageBox3{
+  
+  width: 250px;
+  height: 300px;
+  object-fit:cover;
+  display: flex;
+  position: absolute;
+  top: 800px;
+  left: 30px;
+}
+.imageBox4{
+  
+  width: 250px;
+  height: 300px;
+  object-fit:cover;
+  display: flex;
+  position: absolute;
+  top: 800px;
+  left: 450px;
+}
+
+.textbox{
+  height: 40px;
+  width: 382px;
+  border: 3px solid blue; 
+  background-color: black;
+  color: white;
+  justify-items: center;
+  text-align: center;
+  position: absolute;
+  top: 700px;
+  left: 30px;
+}
+
+.textbox2{
+  height: 40px;
+  width: 382px;
+  border: 3px solid blue; 
+  background-color: black;
+  color: white;
+  justify-items: center;
+  text-align: center;
+  position: absolute;
+  top: 700px;
+  left: 450px;
+}
+
+.textbox4{
+  height: 40px;
+  width: 382px;
+  border: 3px solid blue; 
+  background-color: black;
+  color: white;
+  justify-items: center;
+  text-align: center;
+  position: absolute;
+  top: 1100px;
+  left: 450px;
+}
+
+.textbox3{
+  height: 40px;
+  width: 382px;
+  border: 3px solid blue; 
+  background-color: black;
+  color: white;
+  justify-items: center;
+  text-align: center;
+  position: absolute;
+  top: 1100px;
+  left: 30px;
+}
+
+
+
+
