@@ -1,7 +1,4 @@
-import React from "react"
-
-function Home() {
-    console.log("At Home");
+export const Content = () => {
     return (
         <main>
             <div class="searchbar">
@@ -9,6 +6,5 @@ function Home() {
             <input type="text" placeholder="Departing from..."></input>
             </div>
         </main>
-        );
-    }
-export default Home
+    )
+}
