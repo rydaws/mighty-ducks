@@ -13,7 +13,7 @@ function Home() {
 
             <div class="datebars">
                 <input type="text" placeholder="Return date (MM/DD/YYYY)"></input>
-                <input type="text" placeholder="Leave date (MM/DD/YYYY)"></input>
+                <input type="text" placeholder="Departure date (MM/DD/YYYY)"></input>
             </div>
         </main>
         );
