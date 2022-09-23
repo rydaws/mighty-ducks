@@ -61,17 +61,54 @@ footer {
   transform: scale(1.2);
 }
 
-.searchbar input[type=text] {
+.searchbars input[type=text] {
   float: right;
   padding: 6px;
   border: none;
   margin-top: 8px;
   margin-right: 16px;
   font-size: 17px;
+  border: 3px solid #ccc;
+  border-color: var(--bs-secondary);
+  border-radius: 50px;
 }
 
-.searchbar input[type=text] {
-  border: 1px solid #ccc;
+.datebars input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  border: 3px solid #ccc;
+  border-color: var(--bs-secondary);
+  border-radius: 50px;
+}
+
+.ticketsearch[type=button]{
+  border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 50px;
+    background-color: var(--bs-secondary);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+position: absolute;
+right:1350px
+}
+
+
+.ticketsearch:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+              inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
 
