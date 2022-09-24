@@ -26,19 +26,14 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  width: 100%;
-  border: 1px solid white;
-  margin: auto;
 }
 
-main {
+.home {
   width: 100%;
-  height: 3000px;
   display: flex;
-  flex-direction: column;
   flex-grow: 1;
   justify-content: center;
-  overflow-y: auto;
+  align-items: center;
 }
 
 footer {
@@ -64,73 +59,72 @@ footer {
   float: none;
   padding: 6px;
   border: none;
-  margin-top: 8px;
-  margin-right: 16px;
   font-size: 17px;
   border: 3px solid #ccc;
   border-color: var(--bs-secondary);
   border-radius: 50px;
+  margin: 5%;
+  display: flex;
   position: relative;
-  left: 42%;
+  top: 50%;
+
 }
 
 .datebars input[type=text] {
   float: none;
   padding: 6px;
   border: none;
-  margin-top: 8px;
-  margin-right: 16px;
   font-size: 17px;
   border: 3px solid #ccc;
   border-color: var(--bs-secondary);
   border-radius: 50px;
+  margin: 5%;
+  display: flex;
   position: relative;
-  left: 42%;
+  top: 50%;
 }
 
-.ticketsearch[type=button]{
+.ticketsearch[type=button] {
+  margin: auto;
   border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 50px;
-    background-color: var(--bs-secondary);
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
-position: relative;
-left: 42%;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 50px;
+  background-color: var(--bs-secondary);
+  background-image: linear-gradient(to top left,
+      rgba(0, 0, 0, .2),
+      rgba(0, 0, 0, .2) 30%,
+      rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+    inset -2px -2px 3px rgba(0, 0, 0, .6);
+  align-items: center;
+  position: relative;
+  margin-top: 175%;
 }
-
 
 .ticketsearch:active {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-              inset 2px 2px 3px rgba(0, 0, 0, .6);
+    inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-@media screen and (max-width: 600px){
-  .searchbars[type=text], .datebars[type=text]{
+.buttonPosition {
+  text-align: center;
+  position: absolute;
+}
+
+@media screen and (max-width: 768px) {
+  .searchbars[type=text],
+  .datebars[type=text] {
     float: left;
     display: block;
     text-align: left;
     width: 100%;
     margin: 0;
-    padding: 14px;
-  }
-  .ticketsearch[type=button]{
-    float: none;
-    display: block;
-    position: relative;
-    top: 130%;
   }
 }
-
 
 section {
   width: 100%;
