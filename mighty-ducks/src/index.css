@@ -56,31 +56,30 @@ footer {
 
 .searchbars input[type=text] {
   float: none;
-  padding: 6px;
+  padding: 10px;
   border: none;
   font-size: 17px;
   border: 3px solid #ccc;
   border-color: var(--bs-secondary);
   border-radius: 50px;
-  margin: 5%;
+
   display: flex;
   position: relative;
-  top: 50%;
-
+  top: 2rem;
 }
 
 .datebars input[type=text] {
   float: none;
-  padding: 6px;
+  padding: 10px;
   border: none;
   font-size: 17px;
   border: 3px solid #ccc;
   border-color: var(--bs-secondary);
   border-radius: 50px;
-  margin: 5%;
+
   display: flex;
   position: relative;
-  top: 50%;
+  top: 2rem;
 }
 
 .ticketsearch[type=button] {
@@ -101,7 +100,7 @@ footer {
     inset -2px -2px 3px rgba(0, 0, 0, .6);
   align-items: center;
   position: relative;
-  margin-top: 175%;
+  margin-top: 14rem;
 }
 
 .ticketsearch:active {
