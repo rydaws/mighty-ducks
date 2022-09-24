@@ -38,7 +38,6 @@ body {
 
 footer {
   width: 100%;
-  padding: 0.25em;
   background-color: var(--bs-primary);
   color: aliceblue;
   display: grid;
@@ -124,6 +123,27 @@ footer {
     width: 100%;
     margin: 0;
   }
+  .wizard_div {
+    position: relative;
+  }
+}
+
+.wizLogo {
+  height: 332px;
+  width: 600px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.wizard_div {
+  position: absolute;
+  margin-bottom: 20rem;
+  /*
+  height: 100%;
+  margin-top: 5%;
+  */
 }
 
 section {

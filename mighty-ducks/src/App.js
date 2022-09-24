@@ -18,8 +18,7 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/History" element={<History />} />
             <Route path="/Bookings" element={<Bookings />} />
-      </Routes> 
-      <Footer />    
+      </Routes>    
     </div>
   );
 }
