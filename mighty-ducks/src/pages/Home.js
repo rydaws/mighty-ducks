@@ -11,6 +11,14 @@ function Home() {
           alt="Italian Trulli"
         ></img>
       </div>
+      <div className="extrabuttons">
+        <button className="roundtrip" type="button">
+          Round-Trip
+        </button>
+        <button className="oneway" type="button">
+          Oneway
+        </button>
+      </div>
       <div className="searchbars">
         <input type="text" placeholder="Departing from..."></input>
         <input type="text" placeholder="Arriving to..."></input>
