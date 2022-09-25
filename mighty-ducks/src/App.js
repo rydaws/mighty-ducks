@@ -1,7 +1,5 @@
 //import './App.css';
 /*import { Header } from './components/Header'*/
-import { Footer } from './components/Footer'
-
 import AirNavBar from './components/AirNavBar';
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
@@ -18,8 +16,7 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/History" element={<History />} />
             <Route path="/Bookings" element={<Bookings />} />
-      </Routes> 
-      <Footer />    
+      </Routes>    
     </div>
   );
 }

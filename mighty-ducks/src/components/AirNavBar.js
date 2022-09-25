@@ -10,9 +10,9 @@ function AirNavBar() {
         <Container>
           <Navbar.Brand href="home" >
             <img
-            src="logo192.png"
-            width="30"
-            height="30"
+            src="wizard_logo_man.png"
+            width="60"
+            height="39"
             alt="Logo"
             />
           </Navbar.Brand>
