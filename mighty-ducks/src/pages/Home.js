@@ -8,7 +8,7 @@ function Home() {
         <img
           className="wizLogo"
           src="wizard_logo.png"
-          alt="Italian Trulli"
+          alt="Wizard Logo"
         ></img>
       </div>
       <div className="extrabuttons">
