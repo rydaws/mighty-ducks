@@ -20,7 +20,7 @@ function AirNavBar() {
           <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="about">About</Nav.Link>
-            <Nav.Link href="bookings">Bookings</Nav.Link>
+       
             <Nav.Link href="history">History</Nav.Link>
           </Nav>
           </Navbar.Collapse>
