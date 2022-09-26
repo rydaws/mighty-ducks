@@ -1,5 +1,6 @@
 import React from "react";
-
+import Bookings from "./Bookings";
+import {Routes} from 'react-router-dom';
 function Home() {
   console.log("At Home");
   return (
@@ -29,9 +30,11 @@ function Home() {
         <input type="text" placeholder="Return date (MM/DD/YYYY)"></input>
       </div>
       <div className="buttonPosition">
+        <a href="Bookings">
         <button className="ticketsearch" type="button">
           Search
         </button>
+        </a>
       </div>
     </div>
   );
