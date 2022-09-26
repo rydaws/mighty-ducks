@@ -204,7 +204,7 @@ section {
 
 .flightHistory {
   box-sizing: border-box;
-  width: 30%;
+  width: 30rem;
   border: 1px solid black;
   text-align: center;
   margin-bottom: 2rem;
