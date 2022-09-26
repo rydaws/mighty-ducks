@@ -1,6 +1,4 @@
 import React from "react";
-import Bookings from "./Bookings";
-import {Routes} from 'react-router-dom';
 function Home() {
   console.log("At Home");
   return (
