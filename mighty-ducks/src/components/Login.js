@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import "../custom.scss";
+
 import { useNavigate } from "react-router";
  
-export default function Create() {
+export default function Login() {
  const [form, setForm] = useState({
    username: "",
    password: "",
@@ -23,7 +25,7 @@ export default function Create() {
    const newPerson = { ...form };
  
    await fetch("http://localhost:3000/record/add", {
-     method: "POST",
+     method: "GET",
      headers: {
        "Content-Type": "application/json",
      },
@@ -37,16 +39,16 @@ export default function Create() {
    setForm({ username: "", password: "" });
    navigate("/");
  }
- 
- // This following section will display the form that takes the input from the user.
- return (
+  return (
+<section>
    <div>
-     <h3>Signup</h3>
+     <h3>Login</h3>
      <form onSubmit={onSubmit}>
        <div className="form-group">
          <label htmlFor="username">Username</label>
          <input
            type="text"
+           placeholder="Username"
            className="form-control"
            id="username"
            value={form.username}
@@ -56,7 +58,8 @@ export default function Create() {
        <div className="form-group">
          <label htmlFor="password">Password</label>
          <input
-           type="text"
+           type="password"
+           placeholder="Password"
            className="form-control"
            id="password"
            value={form.password}
@@ -66,11 +69,12 @@ export default function Create() {
        <div className="form-group">
          <input
            type="submit"
-           value="Create person"
+           value="Submit"
            className="btn btn-primary"
          />
        </div>
      </form>
    </div>
- );
+   </section>
+  );
 }

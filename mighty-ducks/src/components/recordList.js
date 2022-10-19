@@ -66,6 +66,7 @@ export default function RecordList() {
  
  // This following section will display the table with the records of individuals.
  return (
+  <section>
    <div>
      <h3>Record List</h3>
      <table className="table table-striped" style={{ marginTop: 20 }}>
@@ -78,5 +79,6 @@ export default function RecordList() {
        <tbody>{recordList()}</tbody>
      </table>
    </div>
+   </section>
  );
 }

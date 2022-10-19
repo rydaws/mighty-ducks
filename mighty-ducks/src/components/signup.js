@@ -40,6 +40,7 @@ export default function Create() {
  
  // This following section will display the form that takes the input from the user.
  return (
+    <section>
    <div>
      <h3>Signup</h3>
      <form onSubmit={onSubmit}>
@@ -47,6 +48,7 @@ export default function Create() {
          <label htmlFor="username">Username</label>
          <input
            type="text"
+           placeholder="Username"
            className="form-control"
            id="username"
            value={form.username}
@@ -56,7 +58,8 @@ export default function Create() {
        <div className="form-group">
          <label htmlFor="password">Password</label>
          <input
-           type="text"
+           type="password"
+           placeholder="Password"
            className="form-control"
            id="password"
            value={form.password}
@@ -66,11 +69,12 @@ export default function Create() {
        <div className="form-group">
          <input
            type="submit"
-           value="Create person"
+           value="Submit"
            className="btn btn-primary"
          />
        </div>
      </form>
    </div>
+   </section>
  );
 }

@@ -6,11 +6,11 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Bookings from './pages/Bookings'
 import History from './pages/History'
-import Login from './pages/Login'
+import Login from './components/Login'
 
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
-import Create from "./components/create";
+import Signup from "./components/signup";
 
 function App() {
   return (
@@ -22,9 +22,9 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/History" element={<History />} />
             <Route path="/Bookings" element={<Bookings />} />
+            <Route path="/Signup" element={<Signup />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/edit/:id" element={<Edit />} />
-            <Route path="/create" element={<Create />} />
       </Routes>   
     </div>
   );
