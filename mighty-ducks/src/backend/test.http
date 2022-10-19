@@ -1,0 +1,10 @@
+POST http://localhost:3000/app/signup
+Content-Type: application/json
+
+{
+    "username": "RyanAcct",
+    "password": "PretendPass"
+}
+
+
+  
