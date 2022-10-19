@@ -1,5 +1,4 @@
 import React from "react"
-import { Links } from 'react-router-dom'
 function History() {
     return (
         <section>
