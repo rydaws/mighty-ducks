@@ -42,12 +42,8 @@ export default function Create() {
  // This following section will display the form that takes the input from the user.
  return (
    <div>
-       <div className="Favorite" type="button">
-         <input
-           type="submit"
-           value="Favorite"
-           className="btn btn-primary"
-         />
+       <div className="Favorite">
+      <button className="Favorite" type="button">Favorite</button>
        </div>
    </div>
  );

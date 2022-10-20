@@ -1,7 +1,6 @@
-const mongoose = require('mongoose');
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+const mongoose = require('mongoose');
 // const Record = (props) => (
 //     <tr>
 //       <td>{props.Favorite.userFrom}</td>
@@ -18,8 +17,6 @@ import { Link } from "react-router-dom";
 //       </td>
 //     </tr>
 //    );
-
-
 
 function Favorites() {
     return (

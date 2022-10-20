@@ -21,6 +21,7 @@ function App() {
       <AirNavBar />
       <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/Home" element={<Home />} />
             <Route exact path="/Record" element={<RecordList />} />
             <Route path="/About" element={<About />} />
             <Route path="/History" element={<History />} />
