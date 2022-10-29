@@ -43,12 +43,12 @@ export default class saveUserInput extends React.Component {
     render() {
 
         return (
-            <form onSubmit={this.handleSubmit} method='GET' action="Bookings.php">
+            <form onSubmit={this.handleSubmit} method='GET'>
                     <div className="searchbars">
                         <input id="origin" type="text" value={this.state.origin} onChange={this.handleOriginChange} placeholder="Departing From..." method="GET" />
                     </div>
                     <div className="searchbars">
-                        <input id="destination" type="text" value={this.state.destination} onChange={this.handleDestinationChange} placeholder="Arriving To..." method="GET" />
+                        <input id="destination" type="text" value={this.state.destination} onChange={this.handleDestinationChange} placeholder="Arriving To..." method="POST" />
                     </div>
                     <div className="buttonPosition">
                         <a href="Bookings">
