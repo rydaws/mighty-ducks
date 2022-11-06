@@ -1,4 +1,5 @@
 import React from "react";
+import InputBar from '../components/searchBar'
 function Home() {
   return (
     <div className="home">
@@ -9,31 +10,22 @@ function Home() {
           alt="Wizard Logo"
         ></img>
       </div>
-      <div className="extrabuttons">
-        <button className="roundtrip" type="button">
-          Round-Trip
-        </button>
-        <button className="oneway" type="button">
-          Oneway
-        </button>
+      <div className="center">
+        <label className="checkboxContainer">
+          Oneway<input type="checkbox" />
+          <span className="checkmark" />
+        </label>
+        <label className="checkboxContainer">
+          Round-Trip<input type="checkbox" />
+          <span className="checkmark" />
+        </label>
+        <InputBar />
+        </div>
       </div>
-      <div className="searchbars">
-        <input type="text" placeholder="Departing from..."></input>
-        <input type="text" placeholder="Arriving to..."></input>
-      </div>
+   
 
-      <div className="datebars">
-        <input type="text" placeholder="Departure date (MM/DD/YYYY)"></input>
-        <input type="text" placeholder="Return date (MM/DD/YYYY)"></input>
-      </div>
-      <div className="buttonPosition">
-        <a href="Bookings">
-        <button className="ticketsearch" type="button">
-          Search
-        </button>
-        </a>
-      </div>
-    </div>
   );
 }
+
+
 export default Home;

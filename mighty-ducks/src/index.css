@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
+
 * {
   font-family: Roboto;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.center {
+  position: absolute;
+  flex-direction: column;
 }
 
 html {
@@ -24,7 +30,6 @@ body {
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   height: 100vh;
 }
 
@@ -55,17 +60,14 @@ footer {
 }
 
 .searchbars input[type=text] {
-  float: none;
   padding: 10px;
-  border: none;
   font-size: 17px;
   border: 3px solid #ccc;
   border-color: var(--bs-secondary);
   border-radius: 50px;
-
-  display: flex;
   position: relative;
-  top: 2rem;
+  top: 1rem;
+  
 }
 
 .datebars input[type=text] {
@@ -79,18 +81,17 @@ footer {
 
   display: flex;
   position: relative;
-  top: 2rem;
+  top: 10rem;
 }
 
 .ticketsearch[type=button] {
   margin: auto;
   border: 0;
-  line-height: 2.5;
+  line-height: 2;
   padding: 0 20px;
   font-size: 1rem;
   color: #fff;
   text-shadow: 1px 1px 1px #000;
-  border-radius: 50px;
   background-color: var(--bs-secondary);
   background-image: linear-gradient(to top left,
       rgba(0, 0, 0, .2),
@@ -98,32 +99,11 @@ footer {
       rgba(0, 0, 0, 0));
   box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
     inset -2px -2px 3px rgba(0, 0, 0, .6);
-  align-items: center;
-  position: relative;
-  margin-top: 14rem;
+  position: absolute;
+  margin-top: 2.5rem;
 }
 
-.roundtrip[type=button], .oneway[type=button]{
-  margin: auto;
-  margin-right: 1rem;
-  border: 0;
-  line-height: 2.5;
-  padding: 0 20px;
-  font-size: 1rem;
-  color: #fff;
-  text-shadow: 1px 1px 1px #000;
-  border-radius: 50px;
-  background-color: var(--bs-secondary);
-  background-image: linear-gradient(to top left,
-      rgba(0, 0, 0, .2),
-      rgba(0, 0, 0, .2) 30%,
-      rgba(0, 0, 0, 0));
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-    inset -2px -2px 3px rgba(0, 0, 0, .6);
-  align-items: center;
-  position: relative;
-  margin-bottom: 7rem;
-}
+
 
 .ticketLink[type=button] {
   margin: auto;
@@ -148,17 +128,100 @@ footer {
   float: right;
 }
 
+.Favorite[type=button] {
+  margin: auto;
+  margin-right: 1rem;
+  margin-bottom: .2rem;
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: .5rem;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+  border-radius: 50px;
+  background-color: var(--bs-secondary);
+  background-image: linear-gradient(to top left,
+      rgba(0, 0, 0, .2),
+      rgba(0, 0, 0, .2) 30%,
+      rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+    inset -2px -2px 3px rgba(0, 0, 0, .6);
+  align-items: center;
+  position: relative;
+  float: right;
+}
+
 
 .ticketsearch:active, .roundtrip:active, .oneway:active, .ticketLink:active {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-.buttonPosition, .extrabuttons {
+.buttonPosition {
   text-align: center;
-  position: absolute;
+  float: left;
 }
 
+.checkboxContainer {
+  position: absolute;
+  margin-bottom: 25rem;
+  display: block;
+  padding: 2px;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkboxContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.checkboxContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkboxContainer input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkboxContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkboxContainer .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
 @media screen and (max-width: 768px) {
   .searchbars[type=text],
   .datebars[type=text] {
@@ -167,9 +230,6 @@ footer {
     text-align: left;
     width: 100%;
     margin: 0;
-  }
-  .wizard_div {
-    position: relative;
   }
 }
 
@@ -185,10 +245,6 @@ footer {
 .wizard_div {
   position: absolute;
   margin-bottom: 25rem;
-  /*
-  height: 100%;
-  margin-top: 5%;
-  */
 }
 
 section {
