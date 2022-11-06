@@ -1,9 +1,13 @@
 import React from "react";
 import Card from "react-bootstrap/Card"
+import Placeholder from 'react-bootstrap/Placeholder'
+
+var iatanumber = []
+var airlineName = []
+var price = []
+var airline = []
 
 function APIfetch() {
-    var price = []
-    var airline = []
     var userInputs = localStorage.getItem('_userInputs');
     if (userInputs) {
         localStorage.removeItem('_userInputs');
@@ -13,7 +17,6 @@ function APIfetch() {
         var destination = userInputs.destination
         console.log(origin, destination)
         FetchPriceAPI()
-
     }
 
 
@@ -34,6 +37,7 @@ function APIfetch() {
         fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/prices/cheap?origin=' + origin + '&page=None&currency=USD&destination=' + destination, options)
             .then(res => res.json())
             .then(res => {
+                console.log(res.data[destination])
                 for (let i = 0; i < 2; i++) {
 
                     price[i] = JSON.stringify(res.data[destination][i].price, null, '\t')
@@ -44,22 +48,22 @@ function APIfetch() {
                         airline[i] = "NOT FOUND"
                     } else {
                         airline[i] = JSON.stringify(res.data[destination][i].airline, null, '\t')
+                        airline[i] = airline[i].replaceAll('"', '')
                     }
 
+                    iatanumber[i] = airline[i].concat(flight_number[i])
                 }
 
-                // console.log(price)
-                // console.log(airline)
-                // console.log(flight_number)
-                FetchAirlineAPI(flight_number)
+
+                FetchAirlineAPI(iatanumber)
                 renderAPI()
             }
 
             ).catch(err => console.error(err))
     }
 
-    function FetchAirlineAPI(flight_number) {
-    
+    function FetchAirlineAPI(iatanumber) {
+
         const options = {
             method: 'GET',
             headers: {
@@ -67,14 +71,19 @@ function APIfetch() {
                 'X-RapidAPI-Host': 'aerodatabox.p.rapidapi.com'
             }
         };
-        console.log(flight_number[0])
-        for (let i = 0; i < flight_number.length; i++) {
-        fetch('https://aerodatabox.p.rapidapi.com/flights/number/' + flight_number[i] + '?withAircraftImage=true&withLocation=true', options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
-        renderAPI()
+        console.log(iatanumber)
+        for (let i = 0; i < iatanumber.length; i++) {
+            fetch('https://aerodatabox.p.rapidapi.com/flights/number/' + iatanumber[i] + '?withAircraftImage=true&withLocation=true', options)
+                .then(response => response.json())
+                .then(response => {
+                    airlineName[i] = JSON.stringify(response[0].airline.name)
+                    airlineName[i] = airlineName[i].replaceAll('"', '')
+                    renderAPI()
+                    console.log(response)
+                }
+                ).catch(err => console.error(err));
         }
+        
     }
 
     return (
@@ -83,33 +92,35 @@ function APIfetch() {
                 {
                     width: '40rem',
                 }}>
-                <Card.Header>
-                    Ticket 1
+                <Card.Header id='airlineOne'>
+                    <Placeholder animation='glow'><Placeholder xs={2} /></Placeholder>
                 </Card.Header>
                 <Card.Body>
-                    <Card.Title id="firstAirline"></Card.Title>
-                    <Card.Text id="firstPriceTicket">Loading...</Card.Text>
+                    <Card.Title id="firstPriceTicket"></Card.Title>
+                    <Card.Text id="departure">Loading...</Card.Text>
                 </Card.Body>
             </Card>
             <br />
             <Card style={{ width: '40rem' }}>
-                <Card.Header>
-                    Ticket 2
+                <Card.Header id='airlineTwo'>
+                    <Placeholder animation='glow' xs={2}><Placeholder xs={2} /></Placeholder>
                 </Card.Header>
                 <Card.Body>
-                    <Card.Title id="secondAirline"></Card.Title>
-                    <Card.Text id="secondPriceTicket">Loading...</Card.Text>
+                    <Card.Title id="secondPriceTicket"></Card.Title>
+                    <Card.Text id="arrival">Loading...</Card.Text>
                 </Card.Body>
             </Card>
         </section>
     )
 
     async function renderAPI() {
-        console.log(price)
-        document.getElementById("firstPriceTicket").innerHTML = price[0]
-        document.getElementById("secondPriceTicket").innerHTML = price[1]
-        document.getElementById("firstAirline").innerHTML = airline[0]
-        document.getElementById("secondAirline").innerHTML = airline[1]
+        // console.log(price)
+        document.getElementById("firstPriceTicket").innerHTML = "Price: " + price[0]
+        document.getElementById("secondPriceTicket").innerHTML = "Price: " + price[1]
+        document.getElementById("departure").innerHTML = airline[0]
+        document.getElementById("arrival").innerHTML = airline[1]
+        document.getElementById("airlineOne").innerHTML = airlineName[0]
+        document.getElementById("airlineTwo").innerHTML = airlineName[1]
     }
 }
 export default APIfetch
