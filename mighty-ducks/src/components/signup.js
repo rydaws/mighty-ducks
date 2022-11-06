@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { updateNavBar } from "./AirNavBar";
  
+window.onload = async function hideDivs() {
+  updateNavBar();
+  document.getElementById("loginFailed").style.display = "none";
+}
+
 export default function Create() {
+  function loginFailed() {
+    document.getElementById("loginFailed").style.display = "block";
+    console.log("USERNAME ALREADY EXISTS");
+  }
  const [form, setForm] = useState({
    username: "",
    password: "",
@@ -18,7 +28,10 @@ export default function Create() {
  // This function will handle the submission.
  async function onSubmit(e) {
    e.preventDefault();
- 
+  if (true) {
+    loginFailed();
+    return;
+  }
    // When a post request is sent to the create url, we'll add a new record to the database.
    const newPerson = { ...form };
    await fetch("http://localhost:3000/record/add", {
@@ -65,6 +78,7 @@ export default function Create() {
            onChange={(e) => updateForm({ password: e.target.value })}
          />
        </div>
+       <div className="text-danger" id="loginFailed">Username already in use!</div>
        <div className="form-group">
          <input
            type="submit"
@@ -72,6 +86,13 @@ export default function Create() {
            className="btn btn-primary"
          />
        </div>
+       <div>
+        <input
+        type="button"
+        value="state"
+        onClick={loginFailed}
+        />
+        </div>
      </form>
    </div>
    </section>

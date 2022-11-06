@@ -1,4 +1,5 @@
 import React from "react";
+import { updateNavBar } from "../components/AirNavBar";
 function About() {
   return (
     <section>

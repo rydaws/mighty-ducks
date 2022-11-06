@@ -3,10 +3,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-export async function updateNavBar() {
-  document.getElementById("sess").innerHTML = "dfddsss";
-}
-
 function AirNavBar() {
   return (
     <>
@@ -28,11 +24,12 @@ function AirNavBar() {
               <Nav.Link href="history">History</Nav.Link>
             </Nav>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav.Link href="signup">Signup</Nav.Link>
-              <Nav.Link href="login">Login</Nav.Link>
-              <Nav.Link href="home">
-                <div id="sess">null</div>
-              </Nav.Link>
+              <Nav.Link id="sign" href="signup">Signup</Nav.Link>
+              <Nav.Link id="log" href="login">Login</Nav.Link>
+              <Navbar.Text href="login">
+                <div id="session"></div>
+              </Navbar.Text>
+              <Nav.Link id="out" href="logout">Log out?</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -41,5 +38,19 @@ function AirNavBar() {
     </>
   );
 }
-
 export default AirNavBar;
+export async function updateNavBar() {
+  var loginState = localStorage.getItem('loginState');
+  console.log(loginState);
+  if (loginState === "true") {
+    document.getElementById("session").innerHTML = "Signed in";
+    document.getElementById("log").style.display = "none";
+    document.getElementById("sign").style.display = "none";
+    document.getElementById("out").style.display = "block";
+  } else {
+    document.getElementById("session").innerHTML = "";
+    document.getElementById("log").style.display = "block";
+    document.getElementById("sign").style.display = "block";
+    document.getElementById("out").style.display = "none";
+  }
+}

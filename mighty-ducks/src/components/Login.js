@@ -2,17 +2,13 @@ import React, { useEffect, useState } from "react";
 import "../custom.scss";
 import { useNavigate } from "react-router";
 import { updateNavBar } from "./AirNavBar";
-var loggedIn = false;
 
 
-window.onload = async function update (){
-  updateNavBar();
-  document.getElementById("test").innerHTML = loggedIn;
-}
 export default function Login() {
   function updateState() {
-    loggedIn = true;
-    document.getElementById("test").innerHTML = loggedIn;
+    localStorage.setItem('loginState', true);
+    document.getElementById("test").innerHTML = localStorage.getItem('loginState');
+    updateNavBar();
   }
   
   const [form, setForm] = useState({
@@ -30,7 +26,7 @@ export default function Login() {
   
   // This function will handle the submission.
   async function onSubmit(e) {
-    
+
     e.preventDefault();
   
     // When a post request is sent to the create url, we'll add a new record to the database.
@@ -87,7 +83,7 @@ export default function Login() {
 <section>
    <div>
      <h3>Login</h3>
-     <div id="test">h</div>
+     <div id="test"></div>
      <form onSubmit={onSubmit}>
        <div className="form-group">
          <label htmlFor="username">Username</label>
@@ -129,4 +125,8 @@ export default function Login() {
    </div>
    </section>
   );
+}
+window.onload = function update(){
+  updateNavBar();
+  document.getElementById("test").innerHTML = localStorage.getItem('loginState');
 }
