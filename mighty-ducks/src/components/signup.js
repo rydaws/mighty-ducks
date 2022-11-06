@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { updateNavBar } from "./AirNavBar";
  
@@ -28,9 +28,14 @@ export default function Create() {
  // This function will handle the submission.
  async function onSubmit(e) {
    e.preventDefault();
-  if (true) {
+   for(let i = 0; i < records.length; i++) {
+    if(form.username === records[i].username){
+    console.log("Found at: " + records[i].username);
     loginFailed();
     return;
+    } else {
+      console.log("not found");
+    }
   }
    // When a post request is sent to the create url, we'll add a new record to the database.
    const newPerson = { ...form };
@@ -49,7 +54,38 @@ export default function Create() {
    setForm({ username: "", password: "" });
    navigate("/");
  }
+ const [records, setRecords] = useState([]);
+
+ // This method fetches the records from the database.
+ useEffect(() => {
+   async function getRecords() {
+     const response = await fetch(`http://localhost:3000/record/`);
+
+     if (!response.ok) {
+       const message = `An error occurred: ${response.statusText}`;
+       window.alert(message);
+       return;
+     }
+
+     const records = await response.json();
+
+     console.log(records);
+     setRecords(records);
+   }
+   getRecords();
+
+   return;
+ }, [records.length]);
  
+ async function verifyLogin() {
+  for(let i = 0; i < records.length; i++) {
+    if(form.username === records[i].username){
+    console.log("Found at: " + records[i].username);
+    } else {
+      console.log("not found");
+    }
+  }
+ }
  // This following section will display the form that takes the input from the user.
  return (
     <section>
@@ -79,6 +115,7 @@ export default function Create() {
          />
        </div>
        <div className="text-danger" id="loginFailed">Username already in use!</div>
+       <br></br>
        <div className="form-group">
          <input
            type="submit"
@@ -86,13 +123,6 @@ export default function Create() {
            className="btn btn-primary"
          />
        </div>
-       <div>
-        <input
-        type="button"
-        value="state"
-        onClick={loginFailed}
-        />
-        </div>
      </form>
    </div>
    </section>

@@ -1,5 +1,4 @@
 import React from "react";
-import { updateNavBar } from "./AirNavBar";
 
 function Logout() {
     localStorage.setItem('loginState', false);

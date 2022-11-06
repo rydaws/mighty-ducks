@@ -10,6 +10,11 @@ export default function Login() {
     document.getElementById("test").innerHTML = localStorage.getItem('loginState');
     updateNavBar();
   }
+
+  function loginFailed() {
+    document.getElementById("loginFailed").style.display = "block";
+    console.log("Account not found");
+  }
   
   const [form, setForm] = useState({
     username: "",
@@ -23,28 +28,45 @@ export default function Login() {
       return { ...prev, ...value };
     });
   }
-  
-  // This function will handle the submission.
-  async function onSubmit(e) {
+  const [records, setRecords] = useState([]);
 
+  // This method fetches the records from the database.
+  useEffect(() => {
+    async function getRecords() {
+      const response = await fetch(`http://localhost:3000/record/`);
+
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+
+      const records = await response.json();
+
+      console.log(records);
+      setRecords(records);
+    }
+    getRecords();
+
+    return;
+  }, [records.length]);
+
+  // This function will handle the submission and verify login.
+  async function onSubmit(e) {
+    console.log(records);
     e.preventDefault();
-  
-    // When a post request is sent to the create url, we'll add a new record to the database.
-    const newPerson = { ...form };
-    await fetch("http://localhost:3000/record/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newPerson),
-    })
-    .catch(error => {
-      window.alert(error);
+    for(let i = 0; i < records.length; i++) {      
+      if(form.username === records[i].username && form.password === records[i].password){
+      console.log("Found at: " + records[i].username + " " + records[i].password);
+      updateState();
+      navigate("/");
       return;
-    });
-  
-    setForm({ username: "", password: "" });
-    navigate("/");
+      } else {
+        console.log("not found");
+        loginFailed();
+      }
+    }
+
   }
 
 
@@ -107,19 +129,14 @@ export default function Login() {
            onChange={(e) => updateForm({ password: e.target.value })}
          />
        </div>
+       <div className="text-danger" id="loginFailed">Login error</div>
+       <br></br>
        <div className="form-group">
          <input
            type="submit"
            value="Submit"
            className="btn btn-primary"
          />
-       </div>
-       <div>
-        <input
-        type="button"
-        value="state"
-        onClick={updateState}
-        />
        </div>
      </form>
    </div>
