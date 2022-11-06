@@ -69,37 +69,6 @@ export default function Login() {
 
   }
 
-
-
-//-------------------------------------------------------//
-  // const [records, setRecords] = useState([]);
-  
-  // useEffect(() => {
-  //   async function getRecords() {
-  //     const response = await fetch(`http://localhost:3000/record/`);
-  
-  //     if (!response.ok) {
-  //       const message = `An error occurred: ${response.statusText}`;
-  //       window.alert(message);
-  //       return;
-  //     }
-  
-  //     const records = await response.json();
-      
-  //     console.log(records);
-
-  //     // this shows that we can use the records array to compare data
-  //     document.getElementById("test").innerHTML = records[0].username
-
-  //     setRecords(records);
-  //   }
-  
-  //   getRecords();
-  
-
-  //   return;
-  // }, [records.length]); 
-  
   // USE PATTERN FOR PASSWORD STRENGTH
   return (
 <section>
