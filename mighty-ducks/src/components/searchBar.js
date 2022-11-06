@@ -33,10 +33,10 @@ export default class saveUserInput extends React.Component {
             origin: this.state.origin,
             destination: this.state.destination
         };
-        if(userInputs.origin === null){
-            window.alert("Please enter the origin location of your flight.")
+        if(this.state.origin === undefined){
+            window.alert("Please fill all search parameters.")
         }else if(this.state.destination === ""){
-            window.alert("Please enter the destination location of your flight.")
+            window.alert("Please fill all search parameters.")
         }else{
         userInputs = JSON.stringify(userInputs);
         userInputs = btoa(userInputs);
