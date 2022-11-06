@@ -33,17 +33,22 @@ export default class saveUserInput extends React.Component {
             origin: this.state.origin,
             destination: this.state.destination
         };
+        if(userInputs.origin === null){
+            window.alert("Please enter the origin location of your flight.")
+        }else if(this.state.destination === ""){
+            window.alert("Please enter the destination location of your flight.")
+        }else{
         userInputs = JSON.stringify(userInputs);
         userInputs = btoa(userInputs);
         localStorage.setItem('_userInputs', userInputs);
-        window.location("/Bookings")
+        window.location.href = "/Bookings";
+        }
     }
-
 
     render() {
 
         return (
-            <form onSubmit={this.handleSubmit} method='GET' action="Bookings.php">
+            <form onSubmit={this.handleSubmit} method='GET'>
                     <div className="searchbars">
                         <input id="origin" type="text" value={this.state.origin} onChange={this.handleOriginChange} placeholder="Departing From..." method="GET" maxLength="3"/>
                     </div>
@@ -51,9 +56,7 @@ export default class saveUserInput extends React.Component {
                         <input id="destination" type="text" value={this.state.destination} onChange={this.handleDestinationChange} placeholder="Arriving To..." method="GET" maxLength="3"/>
                     </div>
                     <div className="buttonPosition">
-                        <a href="Bookings">
                             <button className="ticketsearch" type="button" value="Submit" onClick={this.saveInputs}>Submit</button>
-                        </a>
                     </div>
             </form>
 

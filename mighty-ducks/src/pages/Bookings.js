@@ -21,11 +21,6 @@ function APIfetch(origin, destination) {
         .then(res => res.json())
         .then(res => {
             console.log(res.data)
-            const textDiv = document.getElementById("apiID");
-            const p = document.createElement('P');
-            const pText = document.createTextNode(res.data.BUF[0]);
-            textDiv.appendChild(p);
-            p.appendChild(pText)
         })
         .catch(err => console.error(err))
 
