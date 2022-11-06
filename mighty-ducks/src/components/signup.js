@@ -77,15 +77,6 @@ export default function Create() {
    return;
  }, [records.length]);
  
- async function verifyLogin() {
-  for(let i = 0; i < records.length; i++) {
-    if(form.username === records[i].username){
-    console.log("Found at: " + records[i].username);
-    } else {
-      console.log("not found");
-    }
-  }
- }
  // This following section will display the form that takes the input from the user.
  return (
     <section>
