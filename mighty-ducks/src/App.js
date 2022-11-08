@@ -10,6 +10,7 @@ import Bookings from './pages/Bookings'
 
 
 import Login from './components/Login'
+import Logout from "./components/Logout";
 
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
@@ -29,6 +30,7 @@ function App() {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/edit/:id" element={<Edit />} />
+            <Route path="/Logout" element={<Logout />} />
       </Routes>   
     </div>
   );
