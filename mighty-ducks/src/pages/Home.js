@@ -8,8 +8,6 @@ import "@mobiscroll/react/dist/css/mobiscroll.min.css"
 
 
 function Home() {
-  console.log("At Home");
-
   return (
     <main>
       
