@@ -41,15 +41,6 @@ body {
   align-items: center;
 }
 
-footer {
-  width: 100%;
-  background-color: var(--bs-primary);
-  color: aliceblue;
-  display: grid;
-  place-content: center;
-  font-size: small;
-}
-
 .navbar-brand {
   text-decoration: none;
   transition: 0.3s;
