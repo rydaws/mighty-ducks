@@ -21,6 +21,7 @@ function AirNavBar() {
           <Nav className="mr-auto">
             <Nav.Link href="about">About</Nav.Link>     
             <Nav.Link href="history">History</Nav.Link>
+            <Nav.Link href="favorites">Favorites</Nav.Link>
           </Nav>
           <Nav className="justify-content-end flex-grow-1 pe-3">
             <Nav.Link href="signup">Signup</Nav.Link>
