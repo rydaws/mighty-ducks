@@ -1,7 +1,4 @@
 import React from "react";
-import 'material-icons/iconfont/material-icons.css'
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 export default class saveUserInput extends React.Component {
     constructor(props) {
