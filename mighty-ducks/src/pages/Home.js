@@ -27,10 +27,10 @@ function Home() {
             <Row>
               <Col>
                 <Card style={{ width: '60rem', bottom: '15rem' }}>
-                  <div className="homepageSearchbar">
+                  <div className="homepageCalendar">
                   <Calender />
                   </div>
-                  <div className="homepageCalendar">
+                  <div className="homepageSearchbar">
                     <InputBar />
                   </div>
 
