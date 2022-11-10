@@ -7,6 +7,7 @@ import { updateNavBar } from "./AirNavBar";
 export default function Login() {
   function updateState() {
     localStorage.setItem('loginState', true);
+    localStorage.setItem('user', form.username);
     document.getElementById("test").innerHTML = localStorage.getItem('loginState');
     updateNavBar();
   }
