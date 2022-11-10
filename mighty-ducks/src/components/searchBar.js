@@ -1,4 +1,7 @@
 import React from "react";
+import 'material-icons/iconfont/material-icons.css'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default class saveUserInput extends React.Component {
   constructor(props) {
@@ -42,40 +45,24 @@ export default class saveUserInput extends React.Component {
     }
   }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit} method="GET">
-        <div className="searchbars">
-          <input
-            id="origin"
-            type="text"
-            value={this.state.origin}
-            onChange={this.handleOriginChange}
-            placeholder="Departing From..."
-            method="GET"
-          />
-        </div>
-        <div className="searchbars">
-          <input
-            id="destination"
-            type="text"
-            value={this.state.destination}
-            onChange={this.handleDestinationChange}
-            placeholder="Arriving To..."
-            method="POST"
-          />
-        </div>
-        <div className="buttonPosition">
-          <button
-            className="ticketsearch"
-            type="button"
-            value="Submit"
-            onClick={this.saveInputs}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-    );
-  }
+    render() {
+
+        return (
+            <form onSubmit={this.handleSubmit} method='GET'>
+                
+                    <div className="searchbars">
+                        <input id="origin" type="text" value={this.state.origin} onChange={this.handleOriginChange} placeholder="Departing From..." method="GET" />
+                    </div>
+                    <div className="searchbars">
+                        <input id="destination" type="text" value={this.state.destination} onChange={this.handleDestinationChange} placeholder="Arriving To..." method="POST" />
+                    </div>
+                    <div className="buttonPosition">
+                        <a href="Bookings">
+                            <button className="ticketsearch" type="button" value="Submit" onClick={this.saveInputs}>Submit</button>
+                        </a>
+                    </div>
+            </form>
+
+        );
+    }
 }

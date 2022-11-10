@@ -1,22 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-
+:root {
+  --rad: .7rem;
+  --dur: .3s;
+  --color-dark: #2f2f2f;
+  --color-light: #fff;
+  --color-brand: #57bd84;
+  --font-fam: 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  --height: 5rem;
+  --btn-width: 6rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
 
 * {
-  font-family: Roboto;
+  font-family: 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 .center {
+  justify-content: center;
+  min-height: 100vh;
   position: absolute;
   flex-direction: column;
 }
 
-html {
-  font-size: 20px;
-}
+html { box-sizing: border-box; height: 100%; } *, *::before, *::after { box-sizing: inherit; }
 
 body {
   min-height: 100vh;
@@ -41,15 +55,6 @@ body {
   align-items: center;
 }
 
-footer {
-  width: 100%;
-  background-color: var(--bs-primary);
-  color: aliceblue;
-  display: grid;
-  place-content: center;
-  font-size: small;
-}
-
 .navbar-brand {
   text-decoration: none;
   transition: 0.3s;
@@ -59,15 +64,87 @@ footer {
   transform: scale(1.2);
 }
 
-.searchbars input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 3px solid #ccc;
-  border-color: var(--bs-secondary);
-  border-radius: 50px;
+.searchbars{
+  background-color: #fff;
+    padding: 4px;
+    border-radius: 5px
+}
+
+.searchbar-1 {
   position: relative;
-  top: 1rem;
-  
+  width: 100%
+}
+
+.searchbar-1 input {
+  height: 45px;
+    border: none;
+    width: 100%;
+    padding-left: 34px;
+    padding-right: 10px;
+    border-right: 2px solid #eee
+}
+
+.searchbar-1 i {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  font-size: 24px;
+  color: #eee
+}
+
+::placeholder {
+  color: grey;
+  opacity: 5
+}
+
+.searchbar-1 input:focus {
+  border-color: none;
+  box-shadow: none;
+  outline: none
+}
+
+.searchbar-2 {
+  position: relative;
+  width: 100%
+}
+
+.searchbar-2 input{
+  height: 45px;
+    border: none;
+    width: 100%;
+    padding-left: 18px;
+    padding-right: 100px
+}
+
+.searchbar-2 input:focus{
+  border-color: none;
+  box-shadow: none;
+  outline: none
+}
+
+.searchbar-2 i {
+  position: absolute;
+  top: 12px;
+  left: -10px;
+  font-size: 24px;
+  color: #eee
+}
+
+.searchbar-2 button {
+    position: absolute;
+    right: 1px;
+    top: 0px;
+    border: none;
+    height: 45px;
+    background-color: var(--bs-primary);
+    color: #fff;
+    width: 90px;
+    border-radius: 4px;
+}
+
+.searchbar-2 button:hover {
+  background-color: var(--bs-secondary);
+  box-shadow: 0 1px 1px 0 var(--bs-primary), 0 5px 5px 0 var(--bs-primary);
 }
 
 .datebars input[type=text] {
@@ -78,7 +155,6 @@ footer {
   border: 3px solid #ccc;
   border-color: var(--bs-secondary);
   border-radius: 50px;
-
   display: flex;
   position: relative;
   top: 10rem;
@@ -235,7 +311,7 @@ footer {
 
 .wizLogo {
   height: 332px;
-  width: 600px;
+  width: 400;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -246,6 +322,32 @@ footer {
   position: absolute;
   margin-bottom: 25rem;
 }
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-end;
+  height: 90%;
+}
+
+.centerLogo {
+  width: 40rem;
+  padding-bottom: 12rem;
+  max-width: 100%;
+  max-height: 100%;
+  
+}
+
+.homepageSearchbars {
+  
+}
+
+.homepageCalendar {
+  
+}
+
 
 section {
   width: 100%;
