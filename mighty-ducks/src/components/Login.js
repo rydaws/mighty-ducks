@@ -74,12 +74,14 @@ export default function Login() {
   return (
     <section>
       <div className="card">
+        <h4 class="card-header">
+          Login
+        </h4>
         <div className="card-body">
-          <h3>Login</h3>
           <div id="test"></div>
           <form onSubmit={onSubmit}>
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">Your username</label>
               <input
                 type="text"
                 placeholder="Username"
@@ -90,7 +92,7 @@ export default function Login() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Your password</label>
               <input
                 type="password"
                 placeholder="Password"

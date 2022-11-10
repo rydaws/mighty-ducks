@@ -90,11 +90,11 @@ export default function Create() {
   return (
     <section>
       <div className="card">
+      <h4 className="card-header">Signup</h4>
         <div className="card-body">
-          <h3>Signup</h3>
           <form onSubmit={onSubmit}>
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">Create a username</label>
               <input
                 type="text"
                 placeholder="Username"
@@ -105,7 +105,7 @@ export default function Create() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Create a password</label>
               <input
                 type="password"
                 placeholder="Password"
