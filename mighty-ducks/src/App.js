@@ -6,9 +6,6 @@ import About from './pages/About'
 import History from './pages/History'
 import Bookings from './pages/Bookings'
 
-
-
-
 import Login from './components/Login'
 import Logout from "./components/Logout";
 
