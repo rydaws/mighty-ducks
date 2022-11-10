@@ -2,17 +2,11 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import InputBar from './searchBar'
+
 function AirNavBar() {
   return (
     <>
-      <Navbar
-        expand="md"
-        sticky="top"
-        bg="primary"
-        variant="dark"
-        collapseOnSelect
-      >
+      <Navbar expand="md" sticky="top" bg="primary" variant="dark" collapseOnSelect>
         <Container>
           <Navbar.Brand href="/">
             <img src="wizard_logo_man.png" width="60" height="39" alt="Logo" />

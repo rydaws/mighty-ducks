@@ -1,7 +1,4 @@
 import React from "react";
-import 'material-icons/iconfont/material-icons.css'
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 export default class saveUserInput extends React.Component {
   constructor(props) {
@@ -49,7 +46,6 @@ export default class saveUserInput extends React.Component {
 
         return (
             <form onSubmit={this.handleSubmit} method='GET'>
-                
                     <div className="searchbars">
                         <input id="origin" type="text" value={this.state.origin} onChange={this.handleOriginChange} placeholder="Departing From..." method="GET" />
                     </div>
