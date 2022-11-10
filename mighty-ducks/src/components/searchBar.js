@@ -1,9 +1,5 @@
 import React from "react";
 
-<script>
-autocomplete(document.getElementById("origin"), IATACodes)
-</script>
-
 var IATACodes = ["ABR", 
 "ABI", 
 "ADK", 
@@ -739,6 +735,7 @@ var IATACodes = ["ABR",
 "YNG", 
 "YUM"];
 
+
 export default class saveUserInput extends React.Component {
     constructor(props) {
         super(props);
@@ -899,4 +896,6 @@ export default class saveUserInput extends React.Component {
             closeAllLists(e.target);
         });
     }
-}
+}<script>
+autocomplete(document.getElementById("origin"), IATACodes)
+</script>
