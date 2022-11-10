@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { updateNavBar } from "./AirNavBar";
 import zxcvbn from "zxcvbn";
+import PasswordStrengthBar from "react-password-strength-bar";
 
 window.onload = async function hideDivs() {
   updateNavBar();
@@ -31,6 +32,11 @@ export default function Create() {
 
   // This function will handle the submission.
   async function onSubmit(e) {
+    if(zxcvbn(form.password).score < 3) {
+      console.log("SCORE TOO LOW!")
+      alert("Score too low")
+      return;
+    }
     e.preventDefault();
     for (let i = 0; i < records.length; i++) {
       if (form.username === records[i].username) {
@@ -104,16 +110,28 @@ export default function Create() {
               placeholder="Password"
               className="form-control"
               id="password"
+              title="The password length must be greater than or equal to 8
+              The password must contain one or more uppercase characters
+              The password must contain one or more lowercase characters
+              The password must contain one or more numeric values
+              The password must contain one or more special characters"
               value={form.password}
               onChange={(e) => updateForm({ password: e.target.value })}
             />
+            <strong>Password strength must be > 2</strong>
           </div>
+          <PasswordStrengthBar password={form.password} />
+          
           <div className="text-danger" id="loginFailed">
             Username already in use!
           </div>
           <br></br>
           <div className="form-group">
-            <input type="submit" value="Submit" className="btn btn-primary" />
+            <input
+              type="submit"
+              value="Submit"
+              className="btn btn-primary"
+            />
           </div>
         </form>
       </div>
