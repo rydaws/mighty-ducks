@@ -1,5 +1,6 @@
 import React from "react";
 
+
 var IATACodes = ["ABR", 
 "ABI", 
 "ADK", 
@@ -736,32 +737,31 @@ var IATACodes = ["ABR",
 "YUM"];
 
 export default class saveUserInput extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
+    this.state = { origin: "" };
+    this.state = { destination: "" };
 
-        this.state = { origin: '' };
-        this.state = { destination: '' };
+    this.handleOriginChange = this.handleOriginChange.bind(this);
+    this.handleDestinationChange = this.handleDestinationChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.saveInputs = this.saveInputs.bind(this);
+  }
 
-        this.handleOriginChange = this.handleOriginChange.bind(this);
-        this.handleDestinationChange = this.handleDestinationChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.saveInputs = this.saveInputs.bind(this)
-    }
+  handleOriginChange(event) {
+    this.setState({ origin: event.target.value });
+  }
 
-    handleOriginChange(event) {
-        this.setState({ origin: event.target.value });
-    }
+  handleDestinationChange(event) {
+    this.setState({ destination: event.target.value });
+  }
 
-    handleDestinationChange(event) {
-        this.setState({ destination: event.target.value });
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        console.log(this.state.origin)
-        console.log(this.state.destination)
-    }
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log(this.state.origin);
+    console.log(this.state.destination);
+  }
 
     saveInputs() {
         var userInputs = {
