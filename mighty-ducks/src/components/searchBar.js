@@ -1,4 +1,7 @@
 import React from "react";
+import 'material-icons/iconfont/material-icons.css'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default class saveUserInput extends React.Component {
     constructor(props) {
@@ -44,18 +47,28 @@ export default class saveUserInput extends React.Component {
 
         return (
             <form onSubmit={this.handleSubmit} method='GET'>
+                <div className="container">
                     <div className="searchbars">
-                        <input id="origin" type="text" value={this.state.origin} onChange={this.handleOriginChange} placeholder="Departing From..." method="GET" />
+                        <Row>
+                            <Col>
+                                <div className="searchbar-1">
+                                    <i className="material-icons">search</i><input id="origin" type="text" value={this.state.origin} onChange={this.handleOriginChange} placeholder="Departing From..." method="GET" />
+                                </div>
+                            </Col>
+                            <Col>
+                            <div className="searchbar-2">
+                            <i className="material-icons">search</i><input id="destination" type="text" value={this.state.destination} onChange={this.handleDestinationChange} placeholder="Arriving To..." method="POST" />
+                            <a href="Bookings">
+                                <button className="searchButton" type="button" value="Submit" onClick={this.saveInputs}>Go</button>
+                            </a>
+                            </div>
+                            </Col>
+                           
+                        </Row>
                     </div>
-                    <div className="searchbars">
-                        <input id="destination" type="text" value={this.state.destination} onChange={this.handleDestinationChange} placeholder="Arriving To..." method="POST" />
-                    </div>
-                    <div className="buttonPosition">
-                        <a href="Bookings">
-                            <button className="ticketsearch" type="button" value="Submit" onClick={this.saveInputs}>Submit</button>
-                        </a>
-                    </div>
-            </form>
+                </div >
+
+            </form >
 
         );
     }
