@@ -118,7 +118,7 @@ export default function Create() {
               value={form.password}
               onChange={(e) => updateForm({ password: e.target.value })}
             />
-            <strong>Password strength must be > 2</strong>
+            <strong>Password strength must be &gt; 2</strong>
           </div>
           <PasswordStrengthBar password={form.password} />
           
