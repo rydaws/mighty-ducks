@@ -34,7 +34,7 @@ export default function Create() {
   async function onSubmit(e) {
     if (zxcvbn(form.password).score < 3) {
       console.log("SCORE TOO LOW!")
-      alert("Score too low")
+      alert("Your password is too weak!\n\nThe password length must be greater than or equal to 8\nThe password must contain one or more uppercase characters\nThe password must contain one or more lowercase characters\nThe password must contain one or more numeric values\nThe password must contain one or more special characters")
       return;
     }
     e.preventDefault();
@@ -119,7 +119,7 @@ export default function Create() {
                 value={form.password}
                 onChange={(e) => updateForm({ password: e.target.value })}
               />
-              <strong>Password strength must be &gt; 2</strong>
+              <strong>Password strength must be &gt; okay</strong>
             </div>
             <PasswordStrengthBar password={form.password} />
 
