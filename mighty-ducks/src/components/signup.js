@@ -32,7 +32,7 @@ export default function Create() {
 
   // This function will handle the submission.
   async function onSubmit(e) {
-    if(zxcvbn(form.password).score < 3) {
+    if (zxcvbn(form.password).score < 3) {
       console.log("SCORE TOO LOW!")
       alert("Score too low")
       return;
@@ -89,51 +89,53 @@ export default function Create() {
   // This following section will display the form that takes the input from the user.
   return (
     <section>
-      <div>
-        <h3>Signup</h3>
-        <form onSubmit={onSubmit}>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              placeholder="Username"
-              className="form-control"
-              id="username"
-              value={form.username}
-              onChange={(e) => updateForm({ username: e.target.value })}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              className="form-control"
-              id="password"
-              title="The password length must be greater than or equal to 8
+      <div className="card">
+        <div className="card-body">
+          <h3>Signup</h3>
+          <form onSubmit={onSubmit}>
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                placeholder="Username"
+                className="form-control"
+                id="username"
+                value={form.username}
+                onChange={(e) => updateForm({ username: e.target.value })}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                className="form-control"
+                id="password"
+                title="The password length must be greater than or equal to 8
               The password must contain one or more uppercase characters
               The password must contain one or more lowercase characters
               The password must contain one or more numeric values
               The password must contain one or more special characters"
-              value={form.password}
-              onChange={(e) => updateForm({ password: e.target.value })}
-            />
-            <strong>Password strength must be &gt; 2</strong>
-          </div>
-          <PasswordStrengthBar password={form.password} />
-          
-          <div className="text-danger" id="loginFailed">
-            Username already in use!
-          </div>
-          <br></br>
-          <div className="form-group">
-            <input
-              type="submit"
-              value="Submit"
-              className="btn btn-primary"
-            />
-          </div>
-        </form>
+                value={form.password}
+                onChange={(e) => updateForm({ password: e.target.value })}
+              />
+              <strong>Password strength must be &gt; 2</strong>
+            </div>
+            <PasswordStrengthBar password={form.password} />
+
+            <div className="text-danger" id="loginFailed">
+              Username already in use!
+            </div>
+            <br></br>
+            <div className="form-group">
+              <input
+                type="submit"
+                value="Submit"
+                className="btn btn-primary"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   );
