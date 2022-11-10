@@ -10,7 +10,7 @@
 }
 
 .center {
-  position: absolute;
+  position: relative;
   flex-direction: column;
 }
 
