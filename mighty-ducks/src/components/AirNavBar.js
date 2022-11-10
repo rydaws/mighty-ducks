@@ -41,9 +41,12 @@ function AirNavBar() {
 export default AirNavBar;
 export async function updateNavBar() {
   var loginState = localStorage.getItem('loginState');
+  var user = localStorage.getItem('user')
   console.log(loginState);
+  // none = HIDDEN
+  // block = SHOWN
   if (loginState === "true") {
-    document.getElementById("session").innerHTML = "Signed in";
+    document.getElementById("session").innerHTML = "Hello, " + user + "!";
     document.getElementById("log").style.display = "none";
     document.getElementById("sign").style.display = "none";
     document.getElementById("out").style.display = "block";
