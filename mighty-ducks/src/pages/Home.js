@@ -2,7 +2,6 @@ import React from "react";
 import InputBar from '../components/searchBar'
 function Home() {
   console.log("At Home");
-
   return (
     <div className="home">
       <div className="wizard_div">
