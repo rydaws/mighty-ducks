@@ -9,8 +9,6 @@ import Col from 'react-bootstrap/Col'
 import Container from "react-bootstrap/Container";
 
 function Home() {
-  console.log("At Home");
-
   return (
     <body>
       <div className="container">

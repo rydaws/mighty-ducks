@@ -3,6 +3,7 @@ import "../custom.scss";
 import { useNavigate } from "react-router";
 import { updateNavBar } from "./AirNavBar";
 
+
 export default function Login() {
   function updateState() {
     localStorage.setItem('loginState', true);
@@ -28,58 +29,26 @@ export default function Login() {
       return { ...prev, ...value };
     });
   }
-  
-  // This function will handle the submission.
-  async function onSubmit(e) {
-    e.preventDefault();
-  
-    // When a post request is sent to the create url, we'll add a new record to the database.
-    const newPerson = { ...form };
-    await fetch("http://localhost:3000/record/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newPerson),
-    })
-    .catch(error => {
-      window.alert(error);
-      return;
-    });
-  
-    setForm({ username: "", password: "" });
-    navigate("/");
-  }
-
-
-
-
-
-
-
-
-
-
-
-//-------------------------------------------------------//
   const [records, setRecords] = useState([]);
+
+  // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
       const response = await fetch(`http://localhost:3000/record/`);
-  
+
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
         window.alert(message);
         return;
       }
-  
+
       const records = await response.json();
+
       console.log(records);
       setRecords(records);
     }
-  
     getRecords();
-  
+
     return;
   }, [records.length]);
 
