@@ -94,11 +94,14 @@ function APIfetch() {
         // }
         const favorite={
             favoritedBy:localStorage.getItem('user'),
-            iatanumberFav: iatanumber[0],
+            departingFrom: origin,
+            arrivingAt: destination,
             airlineFav: airlineName[0],
             priceFav: price[0]
         }
         console.log(favorite.airlineFav)
+        console.log(favorite.departingFrom)
+        console.log(favorite.arrivingAt)
     //     await fetch("http://localhost:3000/record/add", {
     //     method: "POST",
     //     headers: {
@@ -119,10 +122,10 @@ function APIfetch() {
                 }}>
                 <Card.Header id='airlineOne'>
                     <Placeholder animation='glow'><Placeholder xs={2} /></Placeholder>
-                    <button type="submit"
-                        value="Favorite"
-                        onClick={(e) => {createFavorite()}}>Favorite</button>
                 </Card.Header>
+                <Card.Header><button type="submit"
+                        value="Favorite"
+                        onClick={(e) => {createFavorite()}}>Favorite</button></Card.Header>
                 <Card.Body>
                     <Card.Title id="firstPriceTicket"></Card.Title>
                     <Card.Text id="departure">Loading...</Card.Text>
