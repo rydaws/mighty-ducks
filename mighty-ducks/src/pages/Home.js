@@ -1,8 +1,6 @@
 import React from "react";
 import InputBar from '../components/searchBar'
 import Calender from '../components/calendar'
-import { useState } from 'react'
-import Dropdown from 'react-bootstrap/Dropdown'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
