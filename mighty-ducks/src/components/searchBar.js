@@ -2,6 +2,7 @@ import React from "react";
 import 'material-icons/iconfont/material-icons.css'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 
 export default class saveUserInput extends React.Component {
     constructor(props) {
@@ -46,7 +47,6 @@ export default class saveUserInput extends React.Component {
     render() {
 
         return (
-            <form onSubmit={this.handleSubmit} method='GET'>
                 <div className="container">
                     <div className="searchbars">
                         <Row>
@@ -56,19 +56,17 @@ export default class saveUserInput extends React.Component {
                                 </div>
                             </Col>
                             <Col>
-                            <div className="searchbar-2">
-                            <i className="material-icons">search</i><input id="destination" type="text" value={this.state.destination} onChange={this.handleDestinationChange} placeholder="Arriving To..." method="POST" />
-                            <a href="Bookings">
-                                <button className="searchButton" type="button" value="Submit" onClick={this.saveInputs}>Go</button>
-                            </a>
-                            </div>
+                                <div className="searchbar-2">
+                                    <i className="material-icons">search</i><input id="destination" type="text" value={this.state.destination} onChange={this.handleDestinationChange} placeholder="Arriving To..." method="POST" />
+                                    <a href="Bookings">
+                                        <button className="searchButton" type="button" value="Submit" onClick={this.saveInputs}>Go</button>
+                                    </a>
+                                </div>
                             </Col>
-                           
+
                         </Row>
                     </div>
                 </div >
-
-            </form >
 
         );
     }

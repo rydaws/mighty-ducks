@@ -29,7 +29,7 @@ function AirNavBar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <br />
+   
     </>
   );
 }

@@ -1,19 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-:root {
-  --rad: .7rem;
-  --dur: .3s;
-  --color-dark: #2f2f2f;
-  --color-light: #fff;
-  --color-brand: #57bd84;
-  --font-fam: 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  --height: 5rem;
-  --btn-width: 6rem;
-  --bez: cubic-bezier(0, 0, 0.43, 1.49);
-}
-
 * {
   font-family: 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -24,35 +10,27 @@
 }
 
 .center {
-  justify-content: center;
-  min-height: 100vh;
   position: absolute;
   flex-direction: column;
 }
 
-html { box-sizing: border-box; height: 100%; } *, *::before, *::after { box-sizing: inherit; }
+html { 
+  font-size: 1rem;
+} 
 
 body {
-  min-height: 100vh;
   font-family: 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: blue;
+
+
 }
 
 .App {
   display: flex;
   flex-direction: column;
   height: 100vh;
-}
-
-.home {
-  width: 100%;
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: center;
 }
 
 .navbar-brand {
@@ -72,7 +50,8 @@ body {
 
 .searchbar-1 {
   position: relative;
-  width: 100%
+  width: 50%;
+  
 }
 
 .searchbar-1 input {
@@ -105,7 +84,7 @@ body {
 
 .searchbar-2 {
   position: relative;
-  width: 100%
+  width: 50%
 }
 
 .searchbar-2 input{
@@ -136,16 +115,113 @@ body {
     top: 0px;
     border: none;
     height: 45px;
-    background-color: var(--bs-primary);
+    background-color: var(--bs-secondary);
     color: #fff;
     width: 90px;
-    border-radius: 4px;
+    border-radius: 4px
 }
 
+
 .searchbar-2 button:hover {
-  background-color: var(--bs-secondary);
-  box-shadow: 0 1px 1px 0 var(--bs-primary), 0 5px 5px 0 var(--bs-primary);
+  box-shadow: 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+.calendars {
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 5px;
+  
+}
+
+.calendar-1 {
+  position: relative;
+  width: 50%
+}
+
+.calendar-1 input {
+  height: 45px;
+    border: none;
+    width: 100%;
+    padding-left: 34px;
+    padding-right: 10px;
+    border-right: 2px solid #eee
+}
+
+.calendar-1 i {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  font-size: 24px;
+  color: #eee
+}
+
+::placeholder {
+  color: grey;
+  opacity: 5
+}
+
+.calendar-1 input:focus {
+  border-color: none;
+  box-shadow: none;
+  outline: none
+}
+
+.calendar-2 {
+  position: relative;
+  width: 50%
+}
+
+.calendar-2 input{
+  height: 45px;
+    border: none;
+    width: 100%;
+    padding-left: 18px;
+    padding-right: 100px
+}
+
+.calendar-2 input:focus{
+  border-color: none;
+  box-shadow: none;
+  outline: none
+}
+
+.calendar-2 i {
+  position: absolute;
+  top: 12px;
+  left: -10px;
+  font-size: 24px;
+  color: #eee
+}
+
+.calendar-2 button {
+    position: absolute;
+    right: 1px;
+    top: 0px;
+    border: none;
+    height: 45px;
+    background-color: var(--bs-secondary);
+    color: #fff;
+    width: 90px;
+    border-radius: 4px
+}
+
+
+.calendar-2 button:hover {
+  box-shadow: 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.carousel {
+  display: block;
+  max-width: 100%;
+  max-width: 100%;
+  width: 1200px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  
+}
+
 
 .datebars input[type=text] {
   float: none;
@@ -179,31 +255,6 @@ body {
   margin-top: 2.5rem;
 }
 
-
-
-.ticketLink[type=button] {
-  margin: auto;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  border: 0;
-  line-height: 2.5;
-  padding: 0 20px;
-  font-size: .5rem;
-  color: #fff;
-  text-shadow: 1px 1px 1px #000;
-  border-radius: 50px;
-  background-color: var(--bs-secondary);
-  background-image: linear-gradient(to top left,
-      rgba(0, 0, 0, .2),
-      rgba(0, 0, 0, .2) 30%,
-      rgba(0, 0, 0, 0));
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-    inset -2px -2px 3px rgba(0, 0, 0, .6);
-  align-items: center;
-  position: relative;
-  float: right;
-}
-
 .Favorite[type=button] {
   margin: auto;
   margin-right: 1rem;
@@ -228,76 +279,9 @@ body {
 }
 
 
-.ticketsearch:active, .roundtrip:active, .oneway:active, .ticketLink:active {
-  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-    inset 2px 2px 3px rgba(0, 0, 0, .6);
-}
 
-.buttonPosition {
-  text-align: center;
-  float: left;
-}
 
-.checkboxContainer {
-  position: absolute;
-  margin-bottom: 25rem;
-  display: block;
-  padding: 2px;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 15px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
-.checkboxContainer input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  border-radius: 50%;
-}
-
-.checkboxContainer:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-.checkboxContainer input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.checkboxContainer input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.checkboxContainer .checkmark:after {
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-}
 @media screen and (max-width: 768px) {
   .searchbars[type=text],
   .datebars[type=text] {
@@ -309,46 +293,26 @@ body {
   }
 }
 
-.wizLogo {
-  height: 332px;
-  width: 400;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  object-position: center;
+.card {
+  margin: auto;
+  z-index: 2;
 }
 
-.wizard_div {
-  position: absolute;
-  margin-bottom: 25rem;
+body p {
+  color: white;
+  text-shadow: 2px 2px 4px var(--bs-primary);
+  font-size: larger;
 }
 
-.container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-content: flex-start;
-  align-items: flex-end;
-  height: 90%;
-}
+
 
 .centerLogo {
-  width: 40rem;
-  padding-bottom: 12rem;
-  max-width: 100%;
-  max-height: 100%;
-  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  height: 400px;
 }
-
-.homepageSearchbars {
-  
-}
-
-.homepageCalendar {
-  
-}
-
-
 section {
   width: 100%;
   height: 3000px;
