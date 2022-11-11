@@ -41,7 +41,6 @@ recordRoutes.route("/record/add").post(function (req, response) {
     password: req.body.password,
   };
   console.log(myobj);
-  console.log(db_connect.collection("login").findOne(myobj));
   if (db_connect.collection("login").find(myobj) != myobj) {
     db_connect.collection("login").insertOne(myobj, function (err, res) {
       if (err) throw err;
