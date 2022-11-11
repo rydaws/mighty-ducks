@@ -86,6 +86,31 @@ function APIfetch() {
         
     }
 
+    async function createFavorite(){
+        // if(localStorage.getItem('loginState')){
+
+        // }else{
+            
+        // }
+        const favorite={
+            favoritedBy:localStorage.getItem('user'),
+            iatanumberFav: iatanumber[0],
+            airlineFav: airlineName[0],
+            priceFav: price[0]
+        }
+        console.log(favorite.airlineFav)
+    //     await fetch("http://localhost:3000/record/add", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(favorite),
+    //     }).catch((error) => {
+    //     window.alert(error);
+    //     return;
+    //   });
+    }
+
     return (
         <section>
             <Card style={
@@ -94,6 +119,9 @@ function APIfetch() {
                 }}>
                 <Card.Header id='airlineOne'>
                     <Placeholder animation='glow'><Placeholder xs={2} /></Placeholder>
+                    <button type="submit"
+                        value="Favorite"
+                        onClick={(e) => {createFavorite()}}>Favorite</button>
                 </Card.Header>
                 <Card.Body>
                     <Card.Title id="firstPriceTicket"></Card.Title>
@@ -104,6 +132,9 @@ function APIfetch() {
             <Card style={{ width: '40rem' }}>
                 <Card.Header id='airlineTwo'>
                     <Placeholder animation='glow' xs={2}><Placeholder xs={2} /></Placeholder>
+                    <button type="submit"
+                        value="Favorite"
+                        onClick={(e) => {createFavorite()}}>Favorite</button>
                 </Card.Header>
                 <Card.Body>
                     <Card.Title id="secondPriceTicket"></Card.Title>
@@ -112,7 +143,6 @@ function APIfetch() {
             </Card>
         </section>
     )
-
     async function renderAPI() {
         // console.log(price)
         document.getElementById("firstPriceTicket").innerHTML = "Price: " + price[0]
