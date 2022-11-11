@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
  
 const Record = (props) => (
  <tr>
-   <td>{props.record.username}</td>
-   <td>{props.record.password}</td>
+   <td>{props.favorite.Arrival}</td>
+   <td>{props.favorite.Departure}</td>
+   <td>{props.favorite.Price}</td>
    <td>
-     <Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
+     <Link className="btn btn-link" to={`/edit/${props.favorite._id}`}>Edit</Link> |
      <button className="btn btn-link"
        onClick={() => {
-         props.deleteRecord(props.record._id);
+         props.deleteRecord(props.favorite._id);
        }}
      >
        Delete
@@ -19,12 +20,12 @@ const Record = (props) => (
 );
  
 export default function RecordList() {
- const [records, setRecords] = useState([]);
+ const [favorite, setFav] = useState([]);
  
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`http://localhost:3000/record/`);
+     const response = await fetch(`http://localhost:3000/Favorite/`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -32,9 +33,8 @@ export default function RecordList() {
        return;
      }
  
-     const records = await response.json();
-     console.log(records);
-     setRecords(records);
+     const favorite = await response.json();
+     setRecords(favorite);
    }
  
    getRecords();
@@ -48,18 +48,18 @@ export default function RecordList() {
      method: "DELETE"
    });
  
-   const newRecords = records.filter((el) => el._id !== id);
-   setRecords(newRecords);
+   const newFavorite = favorites.filter((el) => el._id !== id);
+   setRecords(newFavorite);
  }
  
  // This method will map out the records on the table
  function recordList() {
-   return records.map((record) => {
+   return favorites.map((favorite) => {
      return (
        <Record
-         record={record}
-         deleteRecord={() => deleteRecord(record._id)}
-         key={record._id}
+         record={favorite}
+         deleteRecord={() => deleteRecord(favorite._id)}
+         key={favorite._id}
        />
      );
    });
@@ -73,11 +73,12 @@ export default function RecordList() {
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
-           <th>Username</th>
-           <th>Password</th>
+           <th>Arrival</th>
+           <th>Depature</th>
+           <th>Price</th>
          </tr>
        </thead>
-       <tbody>{recordList()}</tbody>
+       <tbody>{FavList()}</tbody>
      </table>
    </div>
    </section>

@@ -3,7 +3,6 @@ import "../custom.scss";
 import { useNavigate } from "react-router";
 import { updateNavBar } from "./AirNavBar";
 
-
 export default function Login() {
   function updateState() {
     localStorage.setItem('loginState', true);
@@ -29,26 +28,26 @@ export default function Login() {
       return { ...prev, ...value };
     });
   }
+  
+  // This method fetches the records from the database
   const [records, setRecords] = useState([]);
-
-  // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
       const response = await fetch(`http://localhost:3000/record/`);
-
+  
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
         window.alert(message);
         return;
       }
-
+  
       const records = await response.json();
-
       console.log(records);
       setRecords(records);
     }
+  
     getRecords();
-
+  
     return;
   }, [records.length]);
 

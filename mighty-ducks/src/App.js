@@ -7,10 +7,9 @@ import History from './pages/History'
 import Bookings from './pages/Bookings'
 
 import Login from './components/Login'
-import Logout from "./components/Logout";
-
 import RecordList from "./components/recordList";
 import Signup from "./components/signup";
+import Logout from "./components/Logout";
 
 function App() {
   return (
