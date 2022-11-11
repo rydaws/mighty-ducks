@@ -12,7 +12,7 @@ var IATACodes = ["ABR", "ABI", "ADK", "KKI", "AKI", "CAK", "KQA", "AUK", "ALM", 
 "CMH", "CCR", "CNK", "QCE", "CDV", "CRP", "CEZ", "CGA", "CEC", "CKO", "CUW", "CBE", "DAL", "DFW", "DAY", "DAB", "DEC", "DRG", "DRT", "DJN", "DEN", "QWM", "DSM", "DTT", "DTW", 
 "DVL", "DIK", "DLG", "DDC", "DHN", "DUJ", "DBQ", "DLH", "DRO", "RDU", "RDU", "DUT", "ABE", "EAU", "EDA", "EEK", "KKU", "KEK", "IPL", "ELD", "ELP", "ELV", "ELI", "EKO", "ELM", 
 "LYU", "EMK", "BGM", "WDG", "ERI", "ESC", "EUG", "ACV", "EUE", "EVV", "FAI", "FAR", "FMN", "FYV", "XNA", "FAY", "FLG", "FNT", "FLO", "MSL", "FNL", "QWF", "FOD", "FLL", "TBN", 
-"RSW", "FSM", "VPS", "FWA", "DFW", "FKL", "FAT", "GNV", "GUP", "GCK", "GYY", "GCC", "GGG", "GGW", "GDV", "GLV", "GNU", "JGC", "GCN", "GFK", "GRI", "GJT", "GRR", "GPZ", "KGX", 
+"RSW", "FSM", "VPS", "FWA", "FKL", "FAT", "GNV", "GUP", "GCK", "GYY", "GCC", "GGG", "GGW", "GDV", "GLV", "GNU", "JGC", "GCN", "GFK", "GRI", "GJT", "GRR", "GPZ", "KGX", 
 "GTF", "GRB", "GSO", "GLH", "PGV", "GSP", "GON", "GPT", "GUC", "GST", "HGR", "SUN", "HNS", "PHF", "HNM", "PAK", "CMX", "LEB", "HRL", "MDT", "HRO", "BDL", "HAE", "HVR", "HDN", 
 "HYS", "HKB", "HLN", "AVL", "HIB", "HKY", "GSO", "ITO", "HHH", "HBB", "HYL", "HCR", "HOM", "HNL", "MKK", "HNH", "HPB", "HOT", "HOU", "HOU", "IAH", "HUS", "HTS", "HSV", "HON", 
 "HSL", "HYA", "HYG", "IDA", "IGG", "ILI", "IPL", "IND", "INL", "IYK", "IMT", "IWD", "ISP", "ITH", "JAC", "JAN", "MKL", "JAX", "OAJ", "JMS", "JHW", "JVL", "BGM", "TRI", "JST", 
@@ -38,10 +38,10 @@ function searchBar(){
         return (
             <form method='GET' autoComplete="off">
                 <div className="searchbars">
-                    <input id="origin" type="text" placeholder="Departing From..." method="GET" maxLength="3"/>
+                    <input id="origin" type="text" placeholder="Departing From..." method="GET" onKeyDown={updateOrigin} maxLength="3"/>
                 </div>
                 <div className="searchbars">
-                    <input id="destination" type="text" placeholder="Arriving To..." method="GET" maxLength="3" />
+                    <input id="destination" type="text" placeholder="Arriving To..." method="GET" onKeyDown={updateDestination} maxLength="3" />
                 </div>
                 <div className="buttonPosition">
                     <button className="ticketsearch" type="button" value="Submit">Submit</button>
@@ -51,7 +51,17 @@ function searchBar(){
     }
 export default searchBar;
 
-export async function autocomplete(inp, arr) {
+async function updateOrigin(){
+var currOrig = document.getElementById("origin")
+autocomplete(currOrig, IATACodes);
+}
+
+async function updateDestination(){
+var currDest = document.getElementById("destination")
+autocomplete(currDest, IATACodes);
+}
+
+async function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
@@ -147,101 +157,3 @@ export async function autocomplete(inp, arr) {
       closeAllLists(e.target);
   });
   }
-  autocomplete(document.getElementById("origin"), IATACodes);
-  
-  // window.onload = async function pageLoad(){
-  //   autocomplete(document.getElementById("origin"), IATACodes);
-  // }
-
-//   async function saveInputs() {
-//     var userInputs = {
-//         origin: document.getElementById("origin"),
-//         destination: document.getElementById("destination")
-//     };
-//     if (userInputs.origin === undefined) {
-//         window.alert("Please fill all search parameters.")
-//     } else if (userInputs.destination === "") {
-//         window.alert("Please fill all search parameters.")
-//     } else {
-//         userInputs = JSON.stringify(userInputs);
-//         userInputs = btoa(userInputs);
-//         localStorage.setItem('_userInputs', userInputs);
-//         window.location.href = "/Bookings";
-//     }
-// } 
-
-// import React from "react";
-// import 'material-icons/iconfont/material-icons.css'
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-
-// export default class saveUserInput extends React.Component {
-//     constructor(props) {
-//         super(props);
-
-
-//         this.state = { origin: '' };
-//         this.state = { destination: '' };
-
-//         this.handleOriginChange = this.handleOriginChange.bind(this);
-//         this.handleDestinationChange = this.handleDestinationChange.bind(this);
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//         this.saveInputs = this.saveInputs.bind(this)
-//     }
-
-//     handleOriginChange(event) {
-//         this.setState({ origin: event.target.value });
-//     }
-
-//     handleDestinationChange(event) {
-//         this.setState({ destination: event.target.value });
-//     }
-
-//     handleSubmit(event) {
-//         event.preventDefault();
-//         console.log(this.state.origin)
-//         console.log(this.state.destination)
-//     }
-
-//     saveInputs() {
-//         var userInputs = {
-//             origin: this.state.origin,
-//             destination: this.state.destination
-//         };
-//         userInputs = JSON.stringify(userInputs);
-//         userInputs = btoa(userInputs);
-//         localStorage.setItem('_userInputs', userInputs);
-//         window.location("/Bookings")
-//     }
-
-
-//     render() {
-
-//         return (
-//             <form onSubmit={this.handleSubmit} method='GET'>
-//                 <div className="container">
-//                     <div className="searchbars">
-//                         <Row>
-//                             <Col>
-//                                 <div className="searchbar-1">
-//                                     <i className="material-icons">search</i><input id="origin" type="text" value={this.state.origin} onChange={this.handleOriginChange} placeholder="Departing From..." method="GET" />
-//                                 </div>
-//                             </Col>
-//                             <Col>
-//                             <div className="searchbar-2">
-//                             <i className="material-icons">search</i><input id="destination" type="text" value={this.state.destination} onChange={this.handleDestinationChange} placeholder="Arriving To..." method="POST" />
-//                             <a href="Bookings">
-//                                 <button className="searchButton" type="button" value="Submit" onClick={this.saveInputs}>Go</button>
-//                             </a>
-//                             </div>
-//                             </Col>
-                           
-//                         </Row>
-//                     </div>
-//                 </div >
-
-//             </form >
-
-//         );
-//     }
-// }
