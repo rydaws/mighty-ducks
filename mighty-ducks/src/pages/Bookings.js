@@ -6,16 +6,13 @@ var iatanumber = []
 var airlineName = []
 var price = []
 var airline = []
-var userSend
 
 function APIfetch() {
-    userSend = localStorage.getItem('_userSend');
-    if (userSend) {
-        localStorage.removeItem('_userSend');
-        // userInputs = atob(userInputs);
-        // userInputs = JSON.parse(userInputs)
-        var origin = userSend.sendOrigin
-        var destination = userSend.sendDestination
+    var origin = localStorage.getItem('_userOrigin');
+    var destination = localStorage.getItem('_userDestination');
+    if (true) {
+        localStorage.removeItem('_userOrigin');
+        localStorage.removeItem('_userDestination');
         console.log(origin, destination)
         FetchPriceAPI()
     
@@ -113,7 +110,6 @@ function APIfetch() {
             </Card>
         </section>
     )
-
     async function renderAPI() {
         // console.log(price)
         document.getElementById("firstPriceTicket").innerHTML = "Price: " + price[0]
@@ -125,5 +121,4 @@ function APIfetch() {
     }
 }}
 export default APIfetch
-
 

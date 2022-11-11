@@ -174,9 +174,8 @@ async function saveInputs() {
       sendDestination: userInputs.destination.value
     };
     console.log(userSend.sendOrigin, userSend.sendDestination)
-    // userInputs = JSON.stringify(userInputs);
-    // userInputs= btoa(userInputs);
-    localStorage.setItem('_userSend', userSend);
-    window.location.href = "/Bookings"
+     localStorage.setItem('_userOrigin', userSend.sendOrigin);
+     localStorage.setItem('_userDestination', userSend.sendDestination);
+     window.location.href = "/Bookings"
   }
 }
