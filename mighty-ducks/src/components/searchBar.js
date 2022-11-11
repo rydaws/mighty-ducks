@@ -1,7 +1,7 @@
 import React from "react";
 import 'material-icons/iconfont/material-icons.css';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+//import Row from 'react-bootstrap/Row';
+//import Col from 'react-bootstrap/Col';
 
 var IATACodes = ["ABR", "ABI", "ADK", "KKI", "AKI", "CAK", "KQA", "AUK", "ALM", "ALS", "ALB", "CVO", "QWY", "ABQ", "WKK", "AEX", "AET", "ABE", "AIA", "APN", "AOO", "AMA", 
 "ABL", "AKP", "ANC", "AGN", "ANI", "ANV", "ATW", "ACV", "ARC", "AVL", "HTS", "ASE", "AHN", "AKB", "ATL", "AIY", "ATK", "AGS", "AUG", "AUS", "BFL", "BWI", "BGR", "BHB", "BRW", 
@@ -47,10 +47,10 @@ function searchBar(){
                     <button className="ticketsearch" type="button" value="Submit">Submit</button>
                 </div>
             </form>
-
-        );
+        ); 
     }
 export default searchBar;
+
 export async function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -147,24 +147,25 @@ export async function autocomplete(inp, arr) {
       closeAllLists(e.target);
   });
   }
-
-  async function saveInputs() {
-    var userInputs = {
-        origin: document.getElementById("origin"),
-        destination: document.getElementById("destination")
-    };
-    if (userInputs.origin === undefined) {
-        window.alert("Please fill all search parameters.")
-    } else if (userInputs.destination === "") {
-        window.alert("Please fill all search parameters.")
-    } else {
-        userInputs = JSON.stringify(userInputs);
-        userInputs = btoa(userInputs);
-        localStorage.setItem('_userInputs', userInputs);
-        window.location.href = "/Bookings";
-    }
-} 
-
-window.onload = async function pageLoad(){
   autocomplete(document.getElementById("origin"), IATACodes);
-}
+  
+  // window.onload = async function pageLoad(){
+  //   autocomplete(document.getElementById("origin"), IATACodes);
+  // }
+
+//   async function saveInputs() {
+//     var userInputs = {
+//         origin: document.getElementById("origin"),
+//         destination: document.getElementById("destination")
+//     };
+//     if (userInputs.origin === undefined) {
+//         window.alert("Please fill all search parameters.")
+//     } else if (userInputs.destination === "") {
+//         window.alert("Please fill all search parameters.")
+//     } else {
+//         userInputs = JSON.stringify(userInputs);
+//         userInputs = btoa(userInputs);
+//         localStorage.setItem('_userInputs', userInputs);
+//         window.location.href = "/Bookings";
+//     }
+// } 
