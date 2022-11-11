@@ -6,18 +6,19 @@ var iatanumber = []
 var airlineName = []
 var price = []
 var airline = []
+var userSend
 
 function APIfetch() {
-    var userInputs = localStorage.getItem('_userInputs');
-    if (userInputs) {
-        localStorage.removeItem('_userInputs');
-        userInputs = atob(userInputs);
-        userInputs = JSON.parse(userInputs)
-        var origin = userInputs.origin
-        var destination = userInputs.destination
+    userSend = localStorage.getItem('_userSend');
+    if (userSend) {
+        localStorage.removeItem('_userSend');
+        // userInputs = atob(userInputs);
+        // userInputs = JSON.parse(userInputs)
+        var origin = userSend.sendOrigin
+        var destination = userSend.sendDestination
         console.log(origin, destination)
         FetchPriceAPI()
-    }
+    
 
 
 
@@ -122,7 +123,7 @@ function APIfetch() {
         document.getElementById("airlineOne").innerHTML = airlineName[0]
         document.getElementById("airlineTwo").innerHTML = airlineName[1]
     }
-}
+}}
 export default APIfetch
 
 

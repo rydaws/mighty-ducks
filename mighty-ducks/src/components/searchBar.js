@@ -3,8 +3,10 @@ import 'material-icons/iconfont/material-icons.css';
 //import Row from 'react-bootstrap/Row';
 //import Col from 'react-bootstrap/Col';
 
-var currOrig;
-var currDest;
+var userInputs = {
+  origin: "",
+  destination: ""
+};
 var IATACodes = ["ABR", "ABI", "ADK", "KKI", "AKI", "CAK", "KQA", "AUK", "ALM", "ALS", "ALB", "CVO", "QWY", "ABQ", "WKK", "AEX", "AET", "ABE", "AIA", "APN", "AOO", "AMA",
   "ABL", "AKP", "ANC", "AGN", "ANI", "ANV", "ATW", "ACV", "ARC", "AVL", "HTS", "ASE", "AHN", "AKB", "ATL", "AIY", "ATK", "AGS", "AUG", "AUS", "BFL", "BWI", "BGR", "BHB", "BRW",
   "BTI", "BTR", "MBS", "BPT", "ZBV", "WBQ", "BKW", "BED", "BLV", "BLI", "BJI", "BEH", "BET", "ABE", "BTT", "BIL", "GPT", "BGM", "KBC", "BHM", "BIS", "BID", "BMI", "BLF", "BOI",
@@ -54,13 +56,14 @@ function searchBar() {
 export default searchBar;
 
 async function updateOrigin() {
-  currOrig = document.getElementById("origin")
-  autocomplete(currOrig, IATACodes);
+  //console.log(document.getElementById("origin").value)
+  userInputs.origin = document.getElementById("origin")
+  autocomplete(userInputs.origin, IATACodes);
 }
 
 async function updateDestination() {
-  currDest = document.getElementById("destination")
-  autocomplete(currDest, IATACodes);
+  userInputs.destination = document.getElementById("destination")
+  autocomplete(userInputs.destination, IATACodes);
 }
 
 async function autocomplete(inp, arr) {
@@ -161,21 +164,19 @@ async function autocomplete(inp, arr) {
 }
 
 async function saveInputs() {
-  console.log("SAVE INPUTS")
-  var userInputs = {
-    origin: currOrig,
-    destination: currDest
-  };
-
-  if (currOrig === null) {
+  if (userInputs.origin === "") {
     window.alert("Please fill all search parameters.")
-  }if (userInputs.destination === undefined) {
+  }else if (userInputs.destination === "") {
     alert("Please fill all search parameters.")
-    console.log("ALERT 2")
-  }
-    console.log("ALERT 3")
+  }else{
+    var userSend = {
+      sendOrigin: userInputs.origin.value,
+      sendDestination: userInputs.destination.value
+    };
+    console.log(userSend.sendOrigin, userSend.sendDestination)
     // userInputs = JSON.stringify(userInputs);
-    // userInputs = btoa(userInputs);
-    // localStorage.setItem('_userInputs', userInputs);
-    // window.location.href = "/Bookings"
+    // userInputs= btoa(userInputs);
+    localStorage.setItem('_userSend', userSend);
+    window.location.href = "/Bookings"
   }
+}
