@@ -1,7 +1,8 @@
 import React from "react";
-import 'material-icons/iconfont/material-icons.css';
-//import Row from 'react-bootstrap/Row';
-//import Col from 'react-bootstrap/Col';
+import 'material-icons/iconfont/material-icons.css'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 
 var userInputs = {
   origin: "",
@@ -39,19 +40,43 @@ var IATACodes = ["ABR", "ABI", "ADK", "KKI", "AKI", "CAK", "KQA", "AUK", "ALM", 
   "IPT", "ISN", "ILM", "BDL", "ORH", "WRL", "WRG", "YKM", "YAK", "COD", "YNG", "YUM"];
 
 function searchBar() {
+  // return (
+  //   <form method='GET' autoComplete="off">
+  //     <div className="searchbars">
+  //       <input id="origin" type="text" placeholder="Departing From..." method="GET" onKeyDown={updateOrigin} maxLength="3" />
+  //     </div>
+  //     <div className="searchbars">
+  //       <input id="destination" type="text" placeholder="Arriving To..." method="GET" onKeyDown={updateDestination} maxLength="3" />
+  //     </div>
+  //     <div className="buttonPosition">
+  //       <button className="ticketsearch" type="button" value="Submit" onClick={saveInputs}>Submit</button>
+  //     </div>
+  //   </form>
+  // );
   return (
-    <form method='GET' autoComplete="off">
-      <div className="searchbars">
-        <input id="origin" type="text" placeholder="Departing From..." method="GET" onKeyDown={updateOrigin} maxLength="3" />
-      </div>
-      <div className="searchbars">
-        <input id="destination" type="text" placeholder="Arriving To..." method="GET" onKeyDown={updateDestination} maxLength="3" />
-      </div>
-      <div className="buttonPosition">
-        <button className="ticketsearch" type="button" value="Submit" onClick={saveInputs}>Submit</button>
-      </div>
+    <form method="GET" autoComplete="off">
+    <div className="container">
+        <div className="searchbars">
+            <Row>
+                <Col>
+                    <div className="searchbar-1">
+                        <i className="material-icons">search</i><input id="origin" type="text" onKeyDown={updateOrigin} placeholder="Departing From..." method="GET" maxLength="3" />
+                    </div>
+                </Col>
+                <Col>
+                    <div className="searchbar-2">
+                        <i className="material-icons">search</i><input id="destination" type="text" onKeyDown={updateDestination} placeholder="Arriving To..." method="POST" maxLength="3" />
+                        <a href="Bookings">
+                            <button className="searchButton" type="button" value="Submit" onClick={saveInputs}>Go</button>
+                        </a>
+                    </div>
+                </Col>
+
+            </Row>
+        </div>
+    </div >
     </form>
-  );
+);
 }
 export default searchBar;
 
