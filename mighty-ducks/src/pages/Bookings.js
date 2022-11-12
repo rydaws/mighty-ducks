@@ -98,7 +98,6 @@ function APIfetch() {
                     <Card.Text id="departure">Loading...</Card.Text>
                 </Card.Body>
             </Card>
-            <br />
             <Card style={{ width: '40rem' }}>
                 <Card.Header id='airlineTwo'>
                     <Placeholder animation='glow' xs={2}><Placeholder xs={2} /></Placeholder>
