@@ -40,19 +40,6 @@ var IATACodes = ["ABR", "ABI", "ADK", "KKI", "AKI", "CAK", "KQA", "AUK", "ALM", 
   "IPT", "ISN", "ILM", "BDL", "ORH", "WRL", "WRG", "YKM", "YAK", "COD", "YNG", "YUM"];
 
 function searchBar() {
-  // return (
-  //   <form method='GET' autoComplete="off">
-  //     <div className="searchbars">
-  //       <input id="origin" type="text" placeholder="Departing From..." method="GET" onKeyDown={updateOrigin} maxLength="3" />
-  //     </div>
-  //     <div className="searchbars">
-  //       <input id="destination" type="text" placeholder="Arriving To..." method="GET" onKeyDown={updateDestination} maxLength="3" />
-  //     </div>
-  //     <div className="buttonPosition">
-  //       <button className="ticketsearch" type="button" value="Submit" onClick={saveInputs}>Submit</button>
-  //     </div>
-  //   </form>
-  // );
   return (
     <form method="GET" autoComplete="off">
     <div className="container">
@@ -81,7 +68,6 @@ function searchBar() {
 export default searchBar;
 
 async function updateOrigin() {
-  //console.log(document.getElementById("origin").value)
   userInputs.origin = document.getElementById("origin")
   autocomplete(userInputs.origin, IATACodes);
 }
