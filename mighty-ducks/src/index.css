@@ -23,8 +23,6 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   background-color: blue;
-
-
 }
 
 .App {
@@ -219,21 +217,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
-  
-}
-
-
-.datebars input[type=text] {
-  float: none;
-  padding: 10px;
-  border: none;
-  font-size: 17px;
-  border: 3px solid #ccc;
-  border-color: var(--bs-secondary);
-  border-radius: 50px;
-  display: flex;
-  position: relative;
-  top: 10rem;
 }
 
 .ticketsearch[type=button] {
@@ -278,10 +261,6 @@ body {
   float: right;
 }
 
-
-
-
-
 @media screen and (max-width: 768px) {
   .searchbars[type=text],
   .datebars[type=text] {
@@ -295,7 +274,6 @@ body {
 
 .card {
   margin: auto;
-  z-index: 2;
 }
 
 body p {
@@ -304,7 +282,9 @@ body p {
   font-size: larger;
 }
 
-
+.background {
+  background-color: lightgrey;
+}
 
 .centerLogo {
   display: block;

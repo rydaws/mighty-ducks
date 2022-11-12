@@ -11,7 +11,6 @@ function APIfetch() {
     var userInputs = localStorage.getItem('_userInputs');
     if (userInputs) {
         localStorage.removeItem('_userInputs');
-        userInputs = atob(userInputs);
         userInputs = JSON.parse(userInputs)
         var origin = userInputs.origin
         var destination = userInputs.destination
@@ -100,7 +99,6 @@ function APIfetch() {
                     <Card.Text id="departure">Loading...</Card.Text>
                 </Card.Body>
             </Card>
-            <br />
             <Card style={{ width: '40rem' }}>
                 <Card.Header id='airlineTwo'>
                     <Placeholder animation='glow' xs={2}><Placeholder xs={2} /></Placeholder>

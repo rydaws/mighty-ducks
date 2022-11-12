@@ -9,9 +9,9 @@ import Carousel from 'react-bootstrap/Carousel';
 
 function Home() {
   console.log("At Home");
-
   return (
     <body>
+      <div className="background">
       <Card>
         <InputBar />
         <Calender />
@@ -28,7 +28,7 @@ function Home() {
         </Row>
 
         <Row>
-          <Carousel as='carouselEdges'>
+          <Carousel>
             <Carousel.Item>
               <img
                 className="carousel"
@@ -76,7 +76,6 @@ function Home() {
           <Col>
             <Card border="primary" style={{
               width: '18rem',
-              height: '9rem'
             }}>
               <Card.Img variant="bottom" src="Atlanta.jpg" />
               <Card.ImgOverlay>
@@ -87,7 +86,6 @@ function Home() {
           <Col>
             <Card style={{
               width: '18rem',
-              height: '9rem'
             }}>
               <Card.Img variant="bottom" src="New York.jpg" />
               <Card.ImgOverlay>
@@ -98,7 +96,6 @@ function Home() {
           <Col>
             <Card style={{
               width: '18rem',
-              height: '9rem'
             }}>
               <Card.Img variant="bottom" src="Los Angeles.jpg" />
               <Card.ImgOverlay>
@@ -109,7 +106,6 @@ function Home() {
           <Col>
             <Card style={{
               width: '18rem',
-              height: '9rem'
             }}>
               <Card.Img variant="bottom" src="Chicago.jpg" />
               <Card.ImgOverlay>
@@ -123,7 +119,6 @@ function Home() {
           <Col>
             <Card style={{
               width: '18rem',
-              height: '9rem'
             }}>
               <Card.Img variant="bottom" src="Dallas.jpg" />
               <Card.ImgOverlay>
@@ -133,63 +128,9 @@ function Home() {
           </Col>
         </Row>
       </Container>
-      {/* <Card as="card" style={{ width: '60rem', bottom: '15rem' }}>
-        <Card.Header className="" style={{ height: '35px' }}>
-          <Form>
-            {['radio'].map((type) => (
-              <div key={`default-${type}`} className="mb-3">
-                <Form.Check
-                  type={type}
-                  id={`default-${type}`}
-                  label={`One Way`}
-                />
-              </div>
-            ))}
-          </Form>
-          <Form>
-            {['radio'].map((type) => (
-              <div key={`default-${type}`} className="mb-3">
-                <Form.Check
-                  type={type}
-                  id={`default-${type}`}
-                  label={`Round-Trip`}
-                />
-              </div>
-            ))}
-          </Form>
-        </Card.Header>
-        <div className="homepageSearchbar">
-          <Calender />
-        </div>
-        <div className="homepageCalendar">
-          <InputBar />
-        </div>
-      </Card > */}
       <br />
+      </div>
     </body>
-
-    // <div className="home">
-    //   <div className="wizard_div">
-    //     <img
-    //       className="wizLogo"
-    //       src="wizard_logo.png"
-    //       alt="Wizard Logo"
-    //     ></img>
-    //   </div>
-    //   <div className="center">
-    //     <label className="checkboxContainer">
-    //       Oneway<input type="checkbox" />
-    //       <span className="checkmark" />
-    //     </label>
-    //     <label className="checkboxContainer">
-    //       Round-Trip<input type="checkbox" />
-    //       <span className="checkmark" />
-    //     </label>
-    //     <InputBar />
-    //     </div>
-
-
-    //   </div>
   )
 }
 

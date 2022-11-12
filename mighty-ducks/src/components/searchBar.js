@@ -38,7 +38,6 @@ export default class saveUserInput extends React.Component {
             destination: this.state.destination
         };
         userInputs = JSON.stringify(userInputs);
-        userInputs = btoa(userInputs);
         localStorage.setItem('_userInputs', userInputs);
         window.location("/Bookings")
     }
