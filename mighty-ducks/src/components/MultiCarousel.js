@@ -1,11 +1,10 @@
 import Carousel from 'react-multi-carousel';
 import Card from 'react-bootstrap/Card'
-import { Rerousel } from 'rerousel'
 import React from 'react';
 
 function multiCarousel() {
     
-    var cityChoice
+    var cityChoice 
 
 
     const responsive = {
@@ -23,12 +22,16 @@ function multiCarousel() {
           }
         };
 
-        function handleButton(val) {
+        async function handleButton(val) {
             if (val === undefined) {
                 console.log("ERROR");
-            }else if (val == "Atlanta") {
-
-                window.location("/CityBookings")
+            }else if (val === "Atlanta") {
+                cityChoice = "ATL"
+                console.log(cityChoice)
+                localStorage.setItem('_cityChoice', cityChoice);
+                window.location.href = "/CityBookings"
+            }else {
+              console.log("didnt make it")
             }
             console.log(val)
         }
