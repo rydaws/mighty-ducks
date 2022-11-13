@@ -1,6 +1,5 @@
 import React from "react";
 import InputBar from '../components/searchBar'
-import Calender from '../components/calendar'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
@@ -8,13 +7,14 @@ import Container from "react-bootstrap/Container";
 import 'react-multi-carousel/lib/styles.css';
 import MultiCarousel from '../components/MultiCarousel'
 import Carousel from "react-bootstrap/Carousel"
-
+import MyCarousel from "../components/Carousel"
 function Home() {
   console.log("At Home");
 
   return (
       <div className="background">
-        <Card as="searchbarPosition">
+   
+        <Card>
           <InputBar />
         </Card>
         <Container>
@@ -28,7 +28,7 @@ function Home() {
             </Col>
           </Row>
           <Row>
-            <h2>Best Prices By City</h2>
+            <h2>Best Prices From City</h2>
           </Row>
 
           <Row >
@@ -36,48 +36,32 @@ function Home() {
               <MultiCarousel />
               </div>
           </Row>      
-            
-
-          <Row>
-            <Col>
-            <Carousel>
-              <Carousel.Item>
-                <img className="carouselPics" src="airplane.jpg" alt="Loading..."/>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img className="carouselPics" src="stockairplane.jpg" alt="Loading" />
-              </Carousel.Item>
-            </Carousel>
-            </Col>
-          </Row>
-          <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> 
+          <br /><br /> <br /><br />  <br /><br /> <br /><br />  
+          
           <Row>
             <h2>Meet The Team</h2>
             <Col>
-            <Card style={{width: '10rem',
-                          height: '10rem'
-                          }}>
-            <Card.Img className="teamPics" src="ryan.png" />
-            </Card>
+            <img className="teamPics" src="ryan.png" />
             </Col>
             <Col>
-            <Card style={{width: '10rem'}}>
-            <Card.Img className="teamPics" src="ryangithub.jpg" />
-            </Card>
+            <img className="teamPics" src="eavan.png" />
             </Col>
             <Col>
-            <Card style={{width: '10rem'}}>
-            <Card.Img className="teamPics" src="ryangithub.jpg" />
-            </Card>
+            <img className="teamPics" src="mason.png" />
             </Col>
             <Col>
-            <Card style={{width: '10rem'}}>
-            <Card.Img className="teamPics" src="ryangithub.jpg" />
-            </Card>
+            <img className="teamPics" src="zach.png" />
             </Col>
+          </Row>
+          <Row>
+            <Col><strong>Ryan Dawson</strong></Col>
+            <Col><strong>Eavan Feeney</strong></Col>
+            <Col><strong>Mason DiGaudio</strong></Col>
+            <Col><strong>Zach Weller</strong></Col>
           </Row>
         </Container>
         <br /><br /><br />
+ 
       </div>
 
   )

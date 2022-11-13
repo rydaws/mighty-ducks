@@ -1,11 +1,11 @@
 import Carousel from 'react-multi-carousel';
 import Card from 'react-bootstrap/Card'
 import React from 'react';
+import { useNavigate } from "react-router";
 
 function multiCarousel() {
-
+  const navigate = useNavigate()
   var cityChoice
-
 
   const responsive = {
     desktop: {
@@ -22,20 +22,22 @@ function multiCarousel() {
     }
   };
 
-  async function handleButton(val) {
+  function handleButton(val) {
+    
+
     if (val === undefined) {
       console.log("ERROR");
     } else if (val === "Atlanta") {
       cityChoice = "ATL"
       console.log(cityChoice)
       localStorage.setItem('_cityChoice', cityChoice);
-      window.location.href = "/CityBookings"
+      navigate("/CityBookings")
     } else if (val === "NewYork") {
       cityChoice = "NYC"
       console.log(cityChoice)
       localStorage.setItem('_cityChoice', cityChoice);
       window.location.href = "/CityBookings"
-    }else if (val === "LAX") {
+    }else if (val === "LosAngeles") {
       cityChoice = "LAX"
       console.log(cityChoice)
       localStorage.setItem('_cityChoice', cityChoice);
@@ -46,7 +48,6 @@ function multiCarousel() {
       localStorage.setItem('_cityChoice', cityChoice);
       window.location.href = "/CityBookings"
     }
-    console.log(val)
   }
 
 
@@ -71,7 +72,7 @@ function multiCarousel() {
               <Card style={{
                 width: '18rem',
               }}> 
-                <Card.Img className="city" variant="bottom" src="New York.jpg" />
+                <Card.Img className="city"  src="New York.jpg" />
                 <Card.ImgOverlay>
                   <Card.Title><p>New York</p></Card.Title>
                 </Card.ImgOverlay>
@@ -81,7 +82,7 @@ function multiCarousel() {
               <Card style={{
                 width: '18rem',
               }}>
-                <Card.Img className="city" variant="bottom" src="Los Angeles.jpg" />
+                <Card.Img className="city" src="Los Angeles.jpg" />
                 <Card.ImgOverlay>
                   <Card.Title><p>Los Angeles</p></Card.Title>
                 </Card.ImgOverlay>
@@ -91,7 +92,7 @@ function multiCarousel() {
               <Card style={{
                 width: '18rem',
               }}>
-                <Card.Img className="city" variant="bottom" src="Chicago.jpg" />
+                <Card.Img className="city" src="Chicago.jpg" />
                 <Card.ImgOverlay>
                   <Card.Title><p>Chicago</p></Card.Title>
                 </Card.ImgOverlay>
@@ -101,7 +102,7 @@ function multiCarousel() {
               <Card style={{
                 width: '18rem',
               }}>
-                <Card.Img className="city" variant="bottom" src="Florida.jpg" />
+                <Card.Img className="city" src="Florida.jpg" />
                 <Card.ImgOverlay>
                   <Card.Title><p>Florida</p></Card.Title>
                 </Card.ImgOverlay>

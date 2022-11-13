@@ -45,17 +45,17 @@ function searchBar() {
     <div className="container">
         <div className="searchbars">
             <Row>
-                <Col as="searchbarPosition">
+                <Col>
                     <div className="searchbar-1">
                         <i className="material-icons">search</i><input id="origin" type="text" onKeyDown={updateOrigin} placeholder="Departing From..." method="GET" maxLength="3"/>
                     </div>
                 </Col>
-                <Col as="searchbarPosition">
+                <Col>
                     <div className="searchbar-2">
                         <i className="material-icons">search</i><input id="destination" type="text" onKeyDown={updateDestination} placeholder="Arriving To..." method="POST" maxLength="3" />
                     </div>
                 </Col>
-                <Col as="searchbarPosition">
+                <Col>
                 <div className="searchbar-2">
                 <a href="Bookings">
                             <button className="searchButton" type="button" value="Submit" onClick={saveInputs}>Go</button>

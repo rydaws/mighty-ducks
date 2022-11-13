@@ -3,18 +3,14 @@ import { useState } from 'react'
 import IATAcodes from '../components/IATACodes'
 
 function CityBookings() {
-    var flight_number = []
-    var airline = []
-    var iataPlusFlightNumber = []
-    var airlineName = []
+    // var output
     var city = localStorage.getItem('_cityChoice')
-    var output
+    console.log(city)
     CityAPI()
 
 
     function CityAPI() {
         const [data, setData] = useState({})
-        console.log(IATAcodes)
         const options = {
             method: 'GET',
             headers: {
@@ -27,8 +23,8 @@ function CityBookings() {
         fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/city-directions?currency=USD&origin=' + city, options)
             .then(response => response.json())
             .then(response => {
-                setData(response.data)
-                // FetchAirlineInfo(iataPlusFlightNumber)
+                console.log(response)
+                
             })
             .catch(err => console.error(err));
     }
@@ -55,14 +51,14 @@ function CityBookings() {
     }
 
 
-function DisplayCityBookings(data) {
-    output = data.map((data) =>
-        <li>
-            {data}
-        </li>
-    )
-    return output
-}
+// function DisplayCityBookings(data) {
+//     output = data.map((data) =>
+//         <li>
+//             {data}
+//         </li>
+//     )
+//     return output
+// }
 
 return (
     <div id="airline">

@@ -40,12 +40,22 @@ body {
 }
 
 .teamPics {
- border-radius: 50%;
+  display: flex;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+}
+
+
+.carouselPosition {
+  margin: auto;
 }
 
 .carouselPics {
-  width: 800px;
-  height: 300px;
+  width: 640px;
+  height: 317px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
 }
 
 .searchbarPosition {
@@ -267,14 +277,13 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .searchbars[type=text],
-  .datebars[type=text] {
-    float: left;
-    display: block;
-    text-align: left;
+  .searchbars-1, .searchbar-1 i, .searchbar-1 input, .searchbar-1 input:focus {
     width: 100%;
-    margin: 0;
   }
+  .searchbars-2, .searchbar-2 i, .searchbar-2 input, .searchbars-2 input:focus {
+    width: 100%;
+  }
+  
 }
 
 .cards {
