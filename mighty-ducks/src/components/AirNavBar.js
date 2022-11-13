@@ -22,6 +22,7 @@ function AirNavBar() {
             <Nav className="mr-auto">
               <Nav.Link href="about">About</Nav.Link>
               <Nav.Link href="history">History</Nav.Link>
+              <Nav.Link id="favorites" href="favorites">Favorites</Nav.Link>
             </Nav>
             <Nav className="justify-content-end flex-grow-1 pe-3">
               <Nav.Link id="sign" href="signup">Signup</Nav.Link>
@@ -46,11 +47,13 @@ export async function updateNavBar() {
   // none = HIDDEN
   // block = SHOWN
   if (loginState === "true") {
+    document.getElementById("favorites").style.display="block";
     document.getElementById("session").innerHTML = "Hello, " + user + "!";
     document.getElementById("log").style.display = "none";
     document.getElementById("sign").style.display = "none";
     document.getElementById("out").style.display = "block";
   } else {
+    document.getElementById("favorites").style.display="none";
     document.getElementById("session").innerHTML = "";
     document.getElementById("log").style.display = "block";
     document.getElementById("sign").style.display = "block";
