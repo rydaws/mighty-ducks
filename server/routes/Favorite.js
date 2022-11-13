@@ -2,8 +2,8 @@ const express = require("express");
  
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
-// The router will be added as a middleware and will take control of requests starting with path /record.
-const recordRoutes = express.Router();
+// The router will be added as a middleware and will take control of requests starting with path /favorite.
+const favoriteRoutes = express.Router();
  
 // This will help us connect to the database
 const dbo = require("../db/conn");
@@ -12,8 +12,8 @@ const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
  
  
-// This section will help you get a list of all the records.
-recordRoutes.route("/Favorite").get(function (req, res) {
+// This section will help you get a list of all the favorites of the user thats logged in
+favoriteRoutes.route("/Favorite/").get(function (req, res) {
  let db_connect = dbo.getDb("LoginInfo");
  db_connect
    .collection("favorites")
@@ -24,8 +24,19 @@ recordRoutes.route("/Favorite").get(function (req, res) {
    });
 });
  
+//searches favoritedBy for the current user logged in
+favoriteRoutes.route("/Favorite/:user").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  db_connect
+    .collection("favorites").find({favoritedBy:String(req.params.user)}).toArray(function (err, result) {
+       if (err) throw err;
+       res.json(result);
+});
+ });
+
+
 // This section will help you get a single record by id
-recordRoutes.route("/Favorite/:id").get(function (req, res) {
+favoriteRoutes.route("/Favorite/:id").get(function (req, res) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  db_connect
@@ -36,16 +47,33 @@ recordRoutes.route("/Favorite/:id").get(function (req, res) {
    });
 });
  
-// This section will help you create a new record.
-recordRoutes.route("/Favorite/add").post(function (req, response) {
+// This section will help you create a new record or delete a record if it is already in the table.
+favoriteRoutes.route("/Favorite/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
-   Arrival: req.body.Arrival,
-   Departure: req.body.Departure,
-   Price: req.body.Price
+   favoritedBy:req.body.favoritedBy,
+   Arrival: req.body.arrivingAt,
+   Departure: req.body.departingFrom,
+   Airline:req.body.airline,
+   Price: req.body.price,
  };
- db_connect.collection("favorites").insertOne(myobj, function (err, res) {
-   if (err) throw err;
-   response.json(res);
- });
+ db_connect.collection("favorites").find
+  
+  db_connect.collection("favorites").insertOne(myobj, function (err, res) {
+    if (err) throw err;
+    response.json(res);
+  });
 });
+
+// This section will help you delete a record
+favoriteRoutes.route("/:id").delete((req, response) => {
+  let db_connect = dbo.getDb();
+  let myquery = { _id: ObjectId(req.params.id) };
+  db_connect.collection("login").deleteOne(myquery, function (err, obj) {
+    if (err) throw err;
+    console.log("1 document deleted");
+    response.json(obj);
+  });
+});
+
+module.exports=favoriteRoutes;

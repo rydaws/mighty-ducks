@@ -2,6 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card"
 import Placeholder from 'react-bootstrap/Placeholder'
 
+
 var iatanumber = []
 var airlineName = []
 var price = []
@@ -18,7 +19,7 @@ function APIfetch() {
         console.log(origin, destination)
         FetchPriceAPI()
     }
-
+    
 
 
 
@@ -54,7 +55,7 @@ function APIfetch() {
                     iatanumber[i] = airline[i].concat(flight_number[i])
                 }
 
-
+                renderDandA(origin,destination)
                 FetchAirlineAPI(iatanumber)
                 renderAPI()
             }
@@ -78,16 +79,56 @@ function APIfetch() {
                 .then(response => {
                     airlineName[i] = JSON.stringify(response[0].airline.name)
                     airlineName[i] = airlineName[i].replaceAll('"', '')
-                    renderAPI()
+                    renderAPI(origin,destination)
                     console.log(response)
                 }
                 ).catch(err => console.error(err));
         }
         
+    }  
+
+    async function createFavorite(){
+         if(localStorage.getItem('loginState')){
+            const favorite={
+                favoritedBy:localStorage.getItem('user'),
+                departingFrom: document.getElementById("origin").textContent,
+                arrivingAt: document.getElementById("destination").textContent,
+                airline: airlineName[0],
+                price: price[0],
+                
+            }
+            console.log(favorite.favoritedBy, favorite.airline,favorite.departingFrom,favorite.arrivingAt, favorite.price)
+            
+            // if(!checkData){
+                    await fetch("http://localhost:3000/Favorite/add", {
+                    method: "POST",
+                    headers: {
+                    "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(favorite),
+                }).catch((error) => {
+                    window.alert(error);
+                    return;
+                });
+            //}
+
+
+            
+         }else{
+            console.log("user not logged in")
+         }
+        
+        
     }
 
     return (
         <section>
+            <div className="'flightToAndFrom'">
+                <p>Leaving from: </p>
+                <div id="origin">Loading...</div>
+                <p>Arriving at:</p>
+                <div id="destination">Loading...</div>
+            </div>
             <Card style={
                 {
                     width: '40rem',
@@ -95,8 +136,16 @@ function APIfetch() {
                 <Card.Header id='airlineOne'>
                     <Placeholder animation='glow'><Placeholder xs={2} /></Placeholder>
                 </Card.Header>
+                <Card.Header><button type="submit"
+                        value="Favorite"
+                        onClick={(e) => {createFavorite(
+                        document.getElementById("departure").innerHTML,
+                        document.getElementById("arrival").innerHTML,
+                        document.getElementById("firstPriceTicket").innerHTML)}}>Favorite</button></Card.Header>
                 <Card.Body>
-                    <Card.Title id="firstPriceTicket"></Card.Title>
+                    <Card.Title className="firstTicket">
+                        <div id="firstPriceTicket"></div>
+                    </Card.Title>
                     <Card.Text id="departure">Loading...</Card.Text>
                 </Card.Body>
             </Card>
@@ -105,6 +154,12 @@ function APIfetch() {
                 <Card.Header id='airlineTwo'>
                     <Placeholder animation='glow' xs={2}><Placeholder xs={2} /></Placeholder>
                 </Card.Header>
+                <Card.Header><button type="submit"
+                        value="Favorite"
+                        onClick={(e) => {createFavorite(
+                        document.getElementById("departure").innerHTML,
+                        document.getElementById("arrival").innerHTML,
+                        document.getElementById("secondPriceTicket").innerHTML)}}>Favorite</button></Card.Header>
                 <Card.Body>
                     <Card.Title id="secondPriceTicket"></Card.Title>
                     <Card.Text id="arrival">Loading...</Card.Text>
@@ -112,6 +167,12 @@ function APIfetch() {
             </Card>
         </section>
     )
+
+    async function renderDandA(origin,destination){
+        document.getElementById("origin").innerHTML=origin+" "
+        document.getElementById("destination").innerHTML=destination+" "
+    }
+
 
     async function renderAPI() {
         // console.log(price)

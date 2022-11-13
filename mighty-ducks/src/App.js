@@ -6,6 +6,7 @@ import About from './pages/About'
 import History from './pages/History'
 import Bookings from './pages/Bookings'
 
+import Favorites from './pages/Favorites'
 import Login from './components/Login'
 import RecordList from "./components/recordList";
 import Signup from "./components/signup";
@@ -22,6 +23,7 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/History" element={<History />} />
             <Route path="/Bookings" element={<Bookings />} />
+            <Route path="/Favorites" element={<Favorites />}/>
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Logout" element={<Logout />} />
