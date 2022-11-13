@@ -8,11 +8,9 @@ import Bookings from './pages/Bookings'
 
 import Favorites from './pages/Favorites'
 import Login from './components/Login'
-import Logout from "./components/Logout";
-
-
 import RecordList from "./components/recordList";
 import Signup from "./components/signup";
+import Logout from "./components/Logout";
 
 function App() {
   return (

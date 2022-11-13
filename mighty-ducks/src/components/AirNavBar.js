@@ -2,23 +2,23 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import InputBar from './searchBar'
+
 function AirNavBar() {
   return (
     <>
-      <Navbar
-        expand="md"
-        sticky="top"
-        bg="primary"
-        variant="dark"
-        collapseOnSelect
-      >
+      <Navbar expand="md" sticky="top" bg="primary" variant='dark' collapseOnSelect>
         <Container>
-          <Navbar.Brand href="/">
-            <img src="wizard_logo_man.png" width="60" height="39" alt="Logo" />
+          <Navbar.Brand href="home" >
+            <img
+            src="wizard_logo_man.png"
+            width="60"
+            height="39"
+            alt="Logo"
+            />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
+<<<<<<< HEAD
             <Nav className="mr-auto">
               <Nav.Link href="about">About</Nav.Link>
               <Nav.Link href="history">History</Nav.Link>
@@ -32,6 +32,16 @@ function AirNavBar() {
               </Navbar.Text>
               <Nav.Link id="out" href="logout">Log out?</Nav.Link>
             </Nav>
+=======
+          <Nav className="mr-auto">
+            <Nav.Link href="about">About</Nav.Link>     
+            <Nav.Link href="history">History</Nav.Link>
+          </Nav>
+          <Nav className="justify-content-end flex-grow-1 pe-3">
+            <Nav.Link href="signup">Signup</Nav.Link>
+            <Nav.Link href="login">Login</Nav.Link>
+          </Nav>
+>>>>>>> main
           </Navbar.Collapse>
         </Container>
       </Navbar>
