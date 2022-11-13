@@ -3,48 +3,61 @@ import Card from 'react-bootstrap/Card'
 import React from 'react';
 
 function multiCarousel() {
-    
-    var cityChoice 
+
+  var cityChoice
 
 
-    const responsive = {
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 4,
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2, 
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-          }
-        };
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    }
+  };
 
-        async function handleButton(val) {
-            if (val === undefined) {
-                console.log("ERROR");
-            }else if (val === "Atlanta") {
-                cityChoice = "ATL"
-                console.log(cityChoice)
-                localStorage.setItem('_cityChoice', cityChoice);
-                window.location.href = "/CityBookings"
-            }else {
-              console.log("didnt make it")
-            }
-            console.log(val)
-        }
+  async function handleButton(val) {
+    if (val === undefined) {
+      console.log("ERROR");
+    } else if (val === "Atlanta") {
+      cityChoice = "ATL"
+      console.log(cityChoice)
+      localStorage.setItem('_cityChoice', cityChoice);
+      window.location.href = "/CityBookings"
+    } else if (val === "NewYork") {
+      cityChoice = "NYC"
+      console.log(cityChoice)
+      localStorage.setItem('_cityChoice', cityChoice);
+      window.location.href = "/CityBookings"
+    }else if (val === "LAX") {
+      cityChoice = "ATL"
+      console.log(cityChoice)
+      localStorage.setItem('_cityChoice', cityChoice);
+      window.location.href = "/CityBookings"
+    }else if (val === "Chicago") {
+      cityChoice = "ORD"
+      console.log(cityChoice)
+      localStorage.setItem('_cityChoice', cityChoice);
+      window.location.href = "/CityBookings"
+    }
+    console.log(val)
+  }
 
 
 
-    return (
+  return (
       
         <Carousel
             responsive={responsive}
             infinite={true}
-
         >
+
             <button className='carouselButton' value="Atlanta" onClick={() => handleButton('Atlanta')}>
              <Card style={{
                   width: '18rem',
@@ -55,15 +68,17 @@ function multiCarousel() {
                   </Card.ImgOverlay>
                 </Card>
                 </button>
+                <button className='carouselButton' value="NewYork" onClick={() => handleButton('NewYork')}>
               <Card style={{
                 width: '18rem',
-              }}>
+              }}> 
                 <Card.Img className="city" variant="bottom" src="New York.jpg" />
                 <Card.ImgOverlay>
                   <Card.Title><p>New York</p></Card.Title>
                 </Card.ImgOverlay>
               </Card>
-
+              </button>
+              <button className='carouselButton' value="LosAngeles" onClick={() => handleButton('LosAngeles')}>
               <Card style={{
                 width: '18rem',
               }}>
@@ -72,7 +87,8 @@ function multiCarousel() {
                   <Card.Title><p>Los Angeles</p></Card.Title>
                 </Card.ImgOverlay>
               </Card>
-
+              </button>
+              <button className='carouselButton' value="Chicago" onClick={() => handleButton('Chicago')}>
               <Card style={{
                 width: '18rem',
               }}>
@@ -81,7 +97,8 @@ function multiCarousel() {
                   <Card.Title><p>Chicago</p></Card.Title>
                 </Card.ImgOverlay>
               </Card>
-
+              </button>
+              <button className='carouselButton' value="Florida" onClick={() => handleButton('Florida')}>
               <Card style={{
                 width: '18rem',
               }}>
@@ -90,8 +107,9 @@ function multiCarousel() {
                   <Card.Title><p>Florida</p></Card.Title>
                 </Card.ImgOverlay>
               </Card>
-        </Carousel>
-     
+              </button>
+        </Carousel >
+
 
 
 
