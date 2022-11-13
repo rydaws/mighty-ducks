@@ -22,7 +22,6 @@ body {
   font-family: 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  background-color: blue;
 }
 
 .App {
@@ -40,15 +39,29 @@ body {
   transform: scale(1.2);
 }
 
+.teamPics {
+ border-radius: 50%;
+}
+
+.carouselPics {
+  width: 800px;
+  height: 300px;
+}
+
+.searchbarPosition {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .searchbars{
   background-color: #fff;
     padding: 4px;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 .searchbar-1 {
   position: relative;
-  width: 50%;
+  width: 100%;
   
 }
 
@@ -82,7 +95,7 @@ body {
 
 .searchbar-2 {
   position: relative;
-  width: 50%
+  width: 100%
 }
 
 .searchbar-2 input{
@@ -109,8 +122,6 @@ body {
 
 .searchbar-2 button {
     position: absolute;
-    right: 1px;
-    top: 0px;
     border: none;
     height: 45px;
     background-color: var(--bs-secondary);
@@ -121,14 +132,13 @@ body {
 
 
 .searchbar-2 button:hover {
-  box-shadow: 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.calendars {
+/* .calendars {
   background-color: #fff;
   padding: 4px;
   border-radius: 5px;
-  
 }
 
 .calendar-1 {
@@ -197,7 +207,7 @@ body {
     top: 0px;
     border: none;
     height: 45px;
-    background-color: var(--bs-secondary);
+    background-color: white;
     color: #fff;
     width: 90px;
     border-radius: 4px
@@ -206,7 +216,7 @@ body {
 
 .calendar-2 button:hover {
   box-shadow: 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
+} */
 
 .carousel {
   display: block;
@@ -228,28 +238,9 @@ body {
 }
 
 .carouselButton {
-  border-radius: 20px;
-  width: 290px;
-}
-
-
-.ticketsearch[type=button] {
-  margin: auto;
-  border: 0;
-  line-height: 2;
-  padding: 0 20px;
-  font-size: 1rem;
-  color: #fff;
-  text-shadow: 1px 1px 1px #000;
-  background-color: var(--bs-secondary);
-  background-image: linear-gradient(to top left,
-      rgba(0, 0, 0, .2),
-      rgba(0, 0, 0, .2) 30%,
-      rgba(0, 0, 0, 0));
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-    inset -2px -2px 3px rgba(0, 0, 0, .6);
-  position: absolute;
-  margin-top: 2.5rem;
+  width: 280px;
+  height: 200px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .Favorite[type=button] {

@@ -1,18 +1,20 @@
 import React from "react";
+import { useState } from 'react'
+import IATAcodes from '../components/IATACodes'
 
 function CityBookings() {
-        var city = localStorage.getItem('_cityChoice')
-        var output
-        if (true) {
-        localStorage.removeItem('_cityChoice');
-        console.log(city)
-        CityAPI()
-    }
+    var flight_number = []
+    var airline = []
+    var iataPlusFlightNumber = []
+    var airlineName = []
+    var city = localStorage.getItem('_cityChoice')
+    var output
+    CityAPI()
 
-    async function CityAPI() {
 
-        var data = []
-
+    function CityAPI() {
+        const [data, setData] = useState({})
+        console.log(IATAcodes)
         const options = {
             method: 'GET',
             headers: {
@@ -25,28 +27,53 @@ function CityBookings() {
         fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/city-directions?currency=USD&origin=' + city, options)
             .then(response => response.json())
             .then(response => {
-                console.log(response.data)
-                for (let i = 0; i < 30; i++) {
-                    DisplayCityBookings(data)
-                }
+                setData(response.data)
+                // FetchAirlineInfo(iataPlusFlightNumber)
             })
             .catch(err => console.error(err));
-        console.log(data)
     }
 
-    async function DisplayCityBookings(data) {
-        output = data.map((data) =>
-            <li>
-                {data}
-            </li>
-        )
-        return output
+    function FetchAirlineInfo(iataPlusFlightNumber) {
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'bb789da470mshe7d9b0765c7b2a8p1a31d5jsn78609a2f5cc0',
+                'X-RapidAPI-Host': 'aerodatabox.p.rapidapi.com'
+            }
+        };
+        console.log(iataPlusFlightNumber)
+        for (let i = 0; i < iataPlusFlightNumber.length; i++) {
+            fetch('https://aerodatabox.p.rapidapi.com/flights/number/' + iataPlusFlightNumber[i] + '?withAircraftImage=true&withLocation=true', options)
+                .then(response => response.json())
+                .then(response => {
+                    // data = response.data
+                    // console.log(data)
+                }
+                ).catch(err => console.error(err));
+        }
     }
 
-    return (
-        <ul>{output}</ul>
+
+function DisplayCityBookings(data) {
+    output = data.map((data) =>
+        <li>
+            {data}
+        </li>
     )
-
+    return output
 }
+
+return (
+    <div id="airline">
+        
+    </div>
+)
+}
+
+async function renderAPI(airline) {
+document.getElementById("airline").innerHTML = airline
+}
+
 
 export default CityBookings

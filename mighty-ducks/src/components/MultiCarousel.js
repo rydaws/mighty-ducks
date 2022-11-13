@@ -36,7 +36,7 @@ function multiCarousel() {
       localStorage.setItem('_cityChoice', cityChoice);
       window.location.href = "/CityBookings"
     }else if (val === "LAX") {
-      cityChoice = "ATL"
+      cityChoice = "LAX"
       console.log(cityChoice)
       localStorage.setItem('_cityChoice', cityChoice);
       window.location.href = "/CityBookings"
@@ -57,18 +57,17 @@ function multiCarousel() {
             responsive={responsive}
             infinite={true}
         >
-
-            <button className='carouselButton' value="Atlanta" onClick={() => handleButton('Atlanta')}>
+            <div className='carouselButton' value="Atlanta" onClick={() => handleButton('Atlanta')}>
              <Card style={{
-                  width: '18rem',
+                  width: '18rem'
                 }}>
                   <Card.Img className="city" src="Atlanta.jpg" />
                   <Card.ImgOverlay>
                     <Card.Title><p>Atlanta</p></Card.Title>
                   </Card.ImgOverlay>
                 </Card>
-                </button>
-                <button className='carouselButton' value="NewYork" onClick={() => handleButton('NewYork')}>
+                </div>
+                <div className='carouselButton' value="NewYork" onClick={() => handleButton('NewYork')}>
               <Card style={{
                 width: '18rem',
               }}> 
@@ -77,8 +76,8 @@ function multiCarousel() {
                   <Card.Title><p>New York</p></Card.Title>
                 </Card.ImgOverlay>
               </Card>
-              </button>
-              <button className='carouselButton' value="LosAngeles" onClick={() => handleButton('LosAngeles')}>
+              </div>
+              <div className='carouselButton' value="LosAngeles" onClick={() => handleButton('LosAngeles')}>
               <Card style={{
                 width: '18rem',
               }}>
@@ -87,8 +86,8 @@ function multiCarousel() {
                   <Card.Title><p>Los Angeles</p></Card.Title>
                 </Card.ImgOverlay>
               </Card>
-              </button>
-              <button className='carouselButton' value="Chicago" onClick={() => handleButton('Chicago')}>
+              </div>
+              <div className='carouselButton' value="Chicago" onClick={() => handleButton('Chicago')}>
               <Card style={{
                 width: '18rem',
               }}>
@@ -97,8 +96,8 @@ function multiCarousel() {
                   <Card.Title><p>Chicago</p></Card.Title>
                 </Card.ImgOverlay>
               </Card>
-              </button>
-              <button className='carouselButton' value="Florida" onClick={() => handleButton('Florida')}>
+              </div>
+              <div className='carouselButton' value="Florida" onClick={() => handleButton('Florida')}>
               <Card style={{
                 width: '18rem',
               }}>
@@ -107,10 +106,10 @@ function multiCarousel() {
                   <Card.Title><p>Florida</p></Card.Title>
                 </Card.ImgOverlay>
               </Card>
-              </button>
+              </div>
+
         </Carousel >
-
-
+     
 
 
 

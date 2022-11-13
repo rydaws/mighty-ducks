@@ -2,24 +2,17 @@ import React from "react";
 import Card from "react-bootstrap/Card"
 import Placeholder from 'react-bootstrap/Placeholder'
 
-var iatanumber = []
-var airlineName = []
-var price = []
-var airline = []
+
 
 function APIfetch() {
+    var iatanumber = []
+    var airlineName = []
+    var price = []
+    var airline = []
     var origin = localStorage.getItem('_userOrigin');
     var destination = localStorage.getItem('_userDestination');
-    if (true) {
-        localStorage.removeItem('_userOrigin');
-        localStorage.removeItem('_userDestination');
-        console.log(origin, destination)
-        FetchPriceAPI()
+    FetchPriceAPI()
     
-
-
-
-
 
     function FetchPriceAPI() {
         var flight_number = []
@@ -35,7 +28,7 @@ function APIfetch() {
         fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/prices/cheap?origin=' + origin + '&page=None&currency=USD&destination=' + destination, options)
             .then(res => res.json())
             .then(res => {
-                console.log(res.data[destination])
+                console.log(res.data)
                 for (let i = 0; i < 2; i++) {
 
                     price[i] = JSON.stringify(res.data[destination][i].price, null, '\t')
@@ -118,6 +111,6 @@ function APIfetch() {
         document.getElementById("airlineOne").innerHTML = airlineName[0]
         document.getElementById("airlineTwo").innerHTML = airlineName[1]
     }
-}}
+}
 export default APIfetch
 
