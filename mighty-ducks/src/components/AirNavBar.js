@@ -38,14 +38,17 @@ function AirNavBar() {
             <Nav.Link href="history">History</Nav.Link>
           </Nav>
           <Nav className="justify-content-end flex-grow-1 pe-3">
-            <Nav.Link href="signup">Signup</Nav.Link>
-            <Nav.Link href="login">Login</Nav.Link>
-          </Nav>
->>>>>>> main
+              <Nav.Link id="sign" href="signup">Signup</Nav.Link>
+              <Nav.Link id="log" href="login">Login</Nav.Link>
+              <Navbar.Text href="login">
+                <div id="session"></div>
+              </Navbar.Text>
+              <Nav.Link id="out" href="logout">Log out?</Nav.Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <br />
+   
     </>
   );
 }
