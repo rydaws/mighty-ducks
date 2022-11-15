@@ -3,14 +3,15 @@ import { useState } from 'react'
 import IATAcodes from '../components/IATACodes'
 
 function CityBookings() {
-    // var output
     var city = localStorage.getItem('_cityChoice')
     console.log(city)
     CityAPI()
 
 
     function CityAPI() {
-        const [data, setData] = useState({})
+        var flight_number = []
+        var airline = []
+        var iataPlusFlightNumber = []
         const options = {
             method: 'GET',
             headers: {
@@ -23,14 +24,24 @@ function CityBookings() {
         fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/city-directions?currency=USD&origin=' + city, options)
             .then(response => response.json())
             .then(response => {
-                console.log(response)
+                const dataAPI = Object.keys(response.data)
+                console.log(dataAPI)
+                for (let i = 0; i < dataAPI.length; i++) {
+                flight_number[i] = response.data[dataAPI[i]].flight_number
+
+                airline[i] = response.data[dataAPI[i]].airline 
+                airline[i] = airline[i].replaceAll('"', '')
+
+                iataPlusFlightNumber[i] = airline[i].concat(flight_number[i])
                 
+            }
+                FetchAirlineInfo(iataPlusFlightNumber)
             })
             .catch(err => console.error(err));
     }
 
     function FetchAirlineInfo(iataPlusFlightNumber) {
-
+        var aeroAPI = []
         const options = {
             method: 'GET',
             headers: {
@@ -38,20 +49,23 @@ function CityBookings() {
                 'X-RapidAPI-Host': 'aerodatabox.p.rapidapi.com'
             }
         };
-        console.log(iataPlusFlightNumber)
+
         for (let i = 0; i < iataPlusFlightNumber.length; i++) {
             fetch('https://aerodatabox.p.rapidapi.com/flights/number/' + iataPlusFlightNumber[i] + '?withAircraftImage=true&withLocation=true', options)
                 .then(response => response.json())
                 .then(response => {
-                    // data = response.data
-                    // console.log(data)
+                    console.log(response)
+                    aeroAPI[i] = Object.keys(response[0])
+
+                    return aeroAPI
                 }
                 ).catch(err => console.error(err));
         }
+        console.log(aeroAPI)
     }
 
 
-// function DisplayCityBookings(data) {
+// function DisplayCityBookings() {
 //     output = data.map((data) =>
 //         <li>
 //             {data}

@@ -35,7 +35,7 @@ function APIfetch() {
 
                     flight_number[i] = JSON.stringify(res.data[destination][i].flight_number, null, '\t')
 
-                    if (airline === "\"\"") {
+                    if (airline === "") {
                         airline[i] = "NOT FOUND"
                     } else {
                         airline[i] = JSON.stringify(res.data[destination][i].airline, null, '\t')
