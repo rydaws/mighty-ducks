@@ -1,8 +1,47 @@
 import React from "react";
 import Card from "react-bootstrap/Card"
 import Placeholder from 'react-bootstrap/Placeholder'
+import { useState } from 'react'
 
+const lowPrices = (props) => {
+    <Card>
+        <Card.Header>
+        <button className="btn btn-link"
+        onClick={() => {
+          props.deleteRecord(props.favorite._id);
+        }}
+      >
+        Unfavorite
+      </button>
+        </Card.Header>
+        <Card.Title>
+            {props.setPriceData.origin + '=>' + props.setPriceData.destination}
+        </Card.Title>
+        <Card.Body>
 
+        </Card.Body>
+    </Card>
+};
+
+// const monthlyPrices = (props) => {
+//     <Card>
+//         <Card.Header>
+//         <button className="btn btn-link"
+//         onClick={() => {
+//           props.deleteRecord(props.favorite._id);
+//         }}
+//       >
+//         Unfavorite
+//       </button>
+//         </Card.Header>
+//         <Card.Title>
+//             {origin + '=>' + destination}
+//         </Card.Title>
+//         <Card.Body>
+
+//         </Card.Body>
+//     </Card>
+// };
 
 function APIfetch() {
     var iatanumber = []
@@ -11,10 +50,12 @@ function APIfetch() {
     var airline = []
     var origin = localStorage.getItem('_userOrigin');
     var destination = localStorage.getItem('_userDestination');
-    FetchPriceAPI()
-    
+    const [priceData, setPriceData] = useState([])
+    PriceAPIs()
 
-    function FetchPriceAPI() {
+    
+    function PriceAPIs() {
+        
         var flight_number = []
         const options = {
             method: 'GET',
@@ -28,89 +69,104 @@ function APIfetch() {
         fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/prices/cheap?origin=' + origin + '&page=None&currency=USD&destination=' + destination, options)
             .then(res => res.json())
             .then(res => {
-                console.log(res.data)
-                for (let i = 0; i < 2; i++) {
-
-                    price[i] = JSON.stringify(res.data[destination][i].price, null, '\t')
-
-                    flight_number[i] = JSON.stringify(res.data[destination][i].flight_number, null, '\t')
-
-                    if (airline === "") {
-                        airline[i] = "NOT FOUND"
-                    } else {
-                        airline[i] = JSON.stringify(res.data[destination][i].airline, null, '\t')
-                        airline[i] = airline[i].replaceAll('"', '')
-                    }
-
-                    iatanumber[i] = airline[i].concat(flight_number[i])
-                }
-
-
-                FetchAirlineAPI(iatanumber)
-                renderAPI()
+                console.log(res.data[destination])
+                setPriceData(res.data)
+                console.log(priceData)
+                MonthAPI()
             }
 
             ).catch(err => console.error(err))
-    }
+        }
+        function MonthAPI() {
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-Access-Token': '4eaf2071e912db689ea22d419dd5ecca',
+                    'X-RapidAPI-Key': 'bb789da470mshe7d9b0765c7b2a8p1a31d5jsn78609a2f5cc0',
+                    'X-RapidAPI-Host': 'travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com'
+                }
+            };
 
-    function FetchAirlineAPI(iatanumber) {
-
+            fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/prices/calendar?calendar_type=departure_date&destination=' + destination + '&origin=' + origin + '&depart_date=2020-11-18&currency=USD', options)
+                .then(response => response.json())
+                .then(response => {
+                    const months = Object.keys(response.data)
+                    console.log(months)
+                    console.log(response)})
+                
+                .catch(err => console.error(err));
+                AirportAPI()
+        }
+    function AirportAPI() {
         const options = {
             method: 'GET',
             headers: {
                 'X-RapidAPI-Key': 'bb789da470mshe7d9b0765c7b2a8p1a31d5jsn78609a2f5cc0',
-                'X-RapidAPI-Host': 'aerodatabox.p.rapidapi.com'
+                'X-RapidAPI-Host': 'airport-info.p.rapidapi.com'
             }
         };
-        console.log(iatanumber)
-        for (let i = 0; i < iatanumber.length; i++) {
-            fetch('https://aerodatabox.p.rapidapi.com/flights/number/' + iatanumber[i] + '?withAircraftImage=true&withLocation=true', options)
-                .then(response => response.json())
-                .then(response => {
-                    airlineName[i] = JSON.stringify(response[0].airline.name)
-                    airlineName[i] = airlineName[i].replaceAll('"', '')
-                    renderAPI()
-                    console.log(response)
-                }
-                ).catch(err => console.error(err));
-        }
         
+        fetch('https://airport-info.p.rapidapi.com/airport?iata=' + origin, options)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+                DisplayLowestAPI()
+            })
+            .catch(err => console.error(err));
     }
+    
+    async function createFavorite(){
+        if(localStorage.getItem('loginState')){
+           const favorite={
+               favoritedBy:localStorage.getItem('user'),
+               departingFrom: document.getElementById("origin").textContent,
+               arrivingAt: document.getElementById("destination").textContent,
+               airline: airlineName[0],
+               price: price[0],
 
+           }
+           console.log(favorite.favoritedBy, favorite.airline,favorite.departingFrom,favorite.arrivingAt, favorite.price)
+
+           // if(!checkData){
+                   await fetch("http://localhost:3000/Favorite/add", {
+                   method: "POST",
+                   headers: {
+                   "Content-Type": "application/json",
+                   },
+                   body: JSON.stringify(favorite),
+               }).catch((error) => {
+                   window.alert(error);
+                   return;
+               });
+           //}
+        }else{
+           console.log("user not logged in")
+        }
+
+
+   }
+
+    function DisplayLowestAPI() {
+   return priceData.map((propPrice) => {
+     return (
+       <lowPrices
+        priceData={propPrice}
+        createFavorite={() => createFavorite(propPrice._id)}
+         key={propPrice._id}
+       />
+     );
+   });
+  }
     return (
         <section>
-            <Card style={
-                {
-                    width: '40rem',
-                }}>
-                <Card.Header id='airlineOne'>
-                    <Placeholder animation='glow'><Placeholder xs={2} /></Placeholder>
-                </Card.Header>
-                <Card.Body>
-                    <Card.Title id="firstPriceTicket"></Card.Title>
-                    <Card.Text id="departure">Loading...</Card.Text>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '40rem' }}>
-                <Card.Header id='airlineTwo'>
-                    <Placeholder animation='glow' xs={2}><Placeholder xs={2} /></Placeholder>
-                </Card.Header>
-                <Card.Body>
-                    <Card.Title id="secondPriceTicket"></Card.Title>
-                    <Card.Text id="arrival">Loading...</Card.Text>
-                </Card.Body>
-            </Card>
+            <ul>
+                <li>
+                    {DisplayLowestAPI()}
+                </li>
+            </ul>
         </section>
     )
-    async function renderAPI() {
-        // console.log(price)
-        document.getElementById("firstPriceTicket").innerHTML = "Price: " + price[0]
-        document.getElementById("secondPriceTicket").innerHTML = "Price: " + price[1]
-        document.getElementById("departure").innerHTML = airline[0]
-        document.getElementById("arrival").innerHTML = airline[1]
-        document.getElementById("airlineOne").innerHTML = airlineName[0]
-        document.getElementById("airlineTwo").innerHTML = airlineName[1]
-    }
+    
 }
 export default APIfetch
 
