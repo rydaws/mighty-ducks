@@ -18,7 +18,6 @@ function AirNavBar() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-<<<<<<< HEAD
             <Nav className="mr-auto">
               <Nav.Link href="about">About</Nav.Link>
               <Nav.Link href="history">History</Nav.Link>
@@ -32,7 +31,6 @@ function AirNavBar() {
               </Navbar.Text>
               <Nav.Link id="out" href="logout">Log out?</Nav.Link>
             </Nav>
-=======
           <Nav className="mr-auto">
             <Nav.Link href="about">About</Nav.Link>     
             <Nav.Link href="history">History</Nav.Link>
