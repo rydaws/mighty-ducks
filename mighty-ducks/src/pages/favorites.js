@@ -66,14 +66,13 @@ export default function FavList() {
        />
      );
    });
- }
- 
- // This following section will display the table with the records of individuals.
+  }
+
  return (
   <section>
    <div>
      <h3>Favorites</h3>
-     <table className="table table-striped" style={{ marginTop: 20 }}>
+     <table className="favoriteDisplay" style={{ marginTop: 20 }}>
        <thead>
          <tr>
            <th>Departure</th>
