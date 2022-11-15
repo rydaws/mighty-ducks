@@ -4,7 +4,6 @@ import React from 'react';
 import { useNavigate } from "react-router";
 
 function multiCarousel() {
-  const navigate = useNavigate()
   var cityChoice
 
   const responsive = {
@@ -31,7 +30,7 @@ function multiCarousel() {
       cityChoice = "ATL"
       console.log(cityChoice)
       localStorage.setItem('_cityChoice', cityChoice);
-      navigate("/CityBookings")
+      window.location.href = "/CityBookings"
     } else if (val === "NewYork") {
       cityChoice = "NYC"
       console.log(cityChoice)
