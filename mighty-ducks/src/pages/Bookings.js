@@ -106,7 +106,7 @@ function APIfetch() {
             .then(response => response.json())
             .then(response => {
                 const months = Object.keys(response.data)
-                // console.log(response)
+                console.log(response)
             })
 
             .catch(err => console.error(err));
@@ -182,7 +182,7 @@ function APIfetch() {
                             </button>
                         </Card.Header>
                         <Card.Title>
-                            <strong>{origin + '=>' + destination}</strong>
+                            <strong>{origin + ' -> ' + destination}</strong>
                         </Card.Title>
                         <ListGroup.Item id="departuredate">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price">Loading...</ListGroup.Item>
@@ -205,7 +205,7 @@ function APIfetch() {
                             </button>
                         </Card.Header>
                         <Card.Title>
-                            <strong>{origin + '=>' + destination}</strong>
+                            <strong>{origin + ' -> ' + destination}</strong>
                         </Card.Title>
                         <ListGroup.Item id="departuredate2">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price2">Loading...</ListGroup.Item>
@@ -216,6 +216,29 @@ function APIfetch() {
             </Row>
             <Row>
                 <h2>Other Tickets Found</h2>
+                <Col>
+                <Card style={{
+                        width: '18rem',
+                        
+                    }}>
+                        <Card.Header>
+                            <button className="btn btn-link"
+                                onClick={() => {
+                                    // props.deleteRecord(props.favorite._id);
+                                }}
+                            >
+                                Unfavorite
+                            </button>
+                        </Card.Header>
+                        <Card.Title>
+                            <strong>{origin + ' -> ' + destination}</strong>
+                        </Card.Title>
+                        <ListGroup.Item id="departuredate2">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="price2">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="airline2">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="website2">Loading...</ListGroup.Item>
+                    </Card>
+                </Col>
             </Row>
         </>
     )
