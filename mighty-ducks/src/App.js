@@ -2,8 +2,7 @@ import AirNavBar from './components/AirNavBar';
 import { Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Bookings from './pages/Bookings'
-
-import Favorites from './pages/Favorites'
+import CityBookings from './pages/CityBookings'
 import Login from './components/Login'
 import RecordList from "./components/recordList";
 import Signup from "./components/signup";
@@ -20,7 +19,6 @@ function App() {
             <Route exact path="/Record" element={<RecordList />} />
             <Route path="/CityBookings" element={<CityBookings />} />
             <Route path="/Bookings" element={<Bookings />} />
-            <Route path="/Favorites" element={<Favorites />}/>
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Logout" element={<Logout />} />
@@ -32,4 +30,3 @@ function App() {
 
 
 export default App;
-
