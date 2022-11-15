@@ -35,8 +35,22 @@ function CityBookings() {
                 iataPlusFlightNumber[i] = airline[i].concat(flight_number[i])
                 
             }
-                // FetchAirlineInfo(iataPlusFlightNumber)
+                AirportAPI()
             })
+            .catch(err => console.error(err));
+    }
+    function AirportAPI() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'bb789da470mshe7d9b0765c7b2a8p1a31d5jsn78609a2f5cc0',
+                'X-RapidAPI-Host': 'airport-info.p.rapidapi.com'
+            }
+        };
+        
+        fetch('https://airport-info.p.rapidapi.com/airport?iata=' + origin, options)
+            .then(response => response.json())
+            .then(response => console.log(response))
             .catch(err => console.error(err));
     }
 
