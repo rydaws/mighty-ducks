@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col'
 import Container from "react-bootstrap/Container";
 import 'react-multi-carousel/lib/styles.css';
 import MultiCarousel from '../components/MultiCarousel'
+import Carousel from "react-bootstrap/Carousel"
+import MyCarousel from "../components/Carousel"
 function Home() {
   console.log("At Home");
 
