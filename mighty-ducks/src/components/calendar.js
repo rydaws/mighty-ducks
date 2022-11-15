@@ -23,8 +23,10 @@ function Calendar() {
 
         formattedDate = `${year}-${month}-${day}`
         console.log(formattedDate)
-        var grabDepartureCalendar = document.getElementById("departure").setAttribute("min", formattedDate)
-        var grabArrivalCalendar = document.getElementById("arrival").setAttribute("min", formattedDate)
+        var grabDepartureCalendar = document.getElementById("departure")
+        var grabArrivalCalendar = document.getElementById("arrival")
+        grabDepartureCalendar.setAttribute("min", formattedDate)
+        grabArrivalCalendar.setAttribute("min", formattedDate)
     }
 
     function CalendarInput() {
@@ -35,23 +37,22 @@ function Calendar() {
     return (
 
         <div className="container">
-            <div className="calendars">
+            <div className="searchbars">
                 <Row>
                     <Col>
-                        <div className="calendar-1">
-                            <input type="date" id="departure" name="DepartureCalendar" min="" placeholder="Where to.." required />
+                        <div className="searchbar-1">
+                            <label>Departing</label><input type="date" id="departure" name="DepartureCalendar" min="" placeholder="Where to.." required />
                         </div>
                     </Col>
                     <Col>
-                        <div className="calendar-2">
-                        <input type="date" id="arrival" name="ArrivalCalendar" min="" placeholder="Where from..." required pattern='' />
+                        <div className="searchbar-2">
+                        <label>Arriving</label><input type="date" id="arrival" name="ArrivalCalendar" min="" placeholder="Where from..." required />
                             <button className='searchButton' type="submit" >Submit</button>
                         </div>
                     </Col>
                 </Row>
             </div>
         </div>
-
 
     )
 

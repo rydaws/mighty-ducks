@@ -21,12 +21,10 @@
     "react-bootstrap": "^2.5.0",
     "react-calendar": "^3.9.0",
     "react-dom": "^18.2.0",
-    "react-multi-carousel": "^2.8.2",
     "react-password-strength-bar": "^0.4.1",
     "react-router-dom": "^6.4.1",
     "react-scripts": "^5.0.1",
     "reactjs-availability-calendar": "^1.1.4",
-    "rerousel": "^0.1.9",
     "template-jsx": "^1.0.0",
     "web-vitals": "^2.1.4",
     "zxcvbn": "^4.4.2"

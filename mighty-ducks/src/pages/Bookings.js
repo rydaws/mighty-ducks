@@ -3,17 +3,26 @@ import Card from "react-bootstrap/Card"
 import Placeholder from 'react-bootstrap/Placeholder'
 
 
-
+var iatanumber = []
+var airlineName = []
+var price = []
+var airline = []
 
 function APIfetch() {
-    var iatanumber = []
-    var airlineName = []
-    var price = []
-    var airline = []
-    var origin = localStorage.getItem('_userOrigin');
-    var destination = localStorage.getItem('_userDestination');
-    FetchPriceAPI()
+    var userInputs = localStorage.getItem('_userInputs');
+    if (userInputs) {
+        localStorage.removeItem('_userInputs');
+        userInputs = atob(userInputs);
+        userInputs = JSON.parse(userInputs)
+        var origin = userInputs.origin
+        var destination = userInputs.destination
+        console.log(origin, destination)
+        FetchPriceAPI()
+    }
     
+
+
+
 
     function FetchPriceAPI() {
         var flight_number = []
@@ -29,14 +38,14 @@ function APIfetch() {
         fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/prices/cheap?origin=' + origin + '&page=None&currency=USD&destination=' + destination, options)
             .then(res => res.json())
             .then(res => {
-                console.log(res.data)
+                console.log(res.data[destination])
                 for (let i = 0; i < 2; i++) {
 
                     price[i] = JSON.stringify(res.data[destination][i].price, null, '\t')
 
                     flight_number[i] = JSON.stringify(res.data[destination][i].flight_number, null, '\t')
 
-                    if (airline === "") {
+                    if (airline === "\"\"") {
                         airline[i] = "NOT FOUND"
                     } else {
                         airline[i] = JSON.stringify(res.data[destination][i].airline, null, '\t')
@@ -140,6 +149,7 @@ function APIfetch() {
                     <Card.Text id="departure">Loading...</Card.Text>
                 </Card.Body>
             </Card>
+            <br />
             <Card style={{ width: '40rem' }}>
                 <Card.Header id='airlineTwo'>
                     <Placeholder animation='glow' xs={2}><Placeholder xs={2} /></Placeholder>
@@ -175,4 +185,5 @@ function APIfetch() {
     }
 }
 export default APIfetch
+
 
