@@ -1,17 +1,22 @@
 import React from "react";
-import { useState } from 'react'
-import IATAcodes from '../components/IATACodes'
+import ListGroup from 'react-bootstrap/ListGroup';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
+import Card from "react-bootstrap/Card"
 
 function CityBookings() {
     var city = localStorage.getItem('_cityChoice')
     console.log(city)
-    CityAPI()
+    var flight_number = []
+    var airline = []
+    var price = []
+    var departure = []
+    var departureDate = []
+    var airlineCode = []
+    var destination = []
 
-
-    function CityAPI() {
-        var flight_number = []
-        var airline = []
-        var iataPlusFlightNumber = []
+    window.onload = function CityAPI() {
+       
         const options = {
             method: 'GET',
             headers: {
@@ -24,66 +29,133 @@ function CityBookings() {
         fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/city-directions?currency=USD&origin=' + city, options)
             .then(response => response.json())
             .then(response => {
-                const dataAPI = Object.keys(response.data)
-                console.log(dataAPI)
-                for (let i = 0; i < dataAPI.length; i++) {
-                flight_number[i] = response.data[dataAPI[i]].flight_number
+                let dataAPI = Object.values(response.data)
 
-                airline[i] = response.data[dataAPI[i]].airline 
-                airline[i] = airline[i].replaceAll('"', '')
-
-                iataPlusFlightNumber[i] = airline[i].concat(flight_number[i])
-                
+                for (let i = 0; i < 15; i++) {
+                    price[i] = dataAPI[i].price
+                    departure[i] = dataAPI[i].departure_at
+                    departureDate[i] = departure[i].substr(0, 10)
+                    airline[i] = dataAPI[i].airline
+                    flight_number[i] = dataAPI[i].flight_number
+                    airlineCode[i] = airline[i].concat(flight_number[i])
+                    destination[i] = dataAPI[i].destination
+                }
+                console.log(destination)
+                AirportAPI()
             }
-                FetchAirlineInfo(iataPlusFlightNumber)
-            })
+            )
             .catch(err => console.error(err));
     }
-
-    function FetchAirlineInfo(iataPlusFlightNumber) {
-        var aeroAPI = []
+    function AirportAPI() {
         const options = {
             method: 'GET',
             headers: {
                 'X-RapidAPI-Key': 'bb789da470mshe7d9b0765c7b2a8p1a31d5jsn78609a2f5cc0',
-                'X-RapidAPI-Host': 'aerodatabox.p.rapidapi.com'
+                'X-RapidAPI-Host': 'airport-info.p.rapidapi.com'
             }
         };
 
-        for (let i = 0; i < iataPlusFlightNumber.length; i++) {
-            fetch('https://aerodatabox.p.rapidapi.com/flights/number/' + iataPlusFlightNumber[i] + '?withAircraftImage=true&withLocation=true', options)
-                .then(response => response.json())
-                .then(response => {
-                    console.log(response)
-                    aeroAPI[i] = Object.keys(response[0])
-
-                    return aeroAPI
-                }
-                ).catch(err => console.error(err));
-        }
-        console.log(aeroAPI)
+        fetch('https://airport-info.p.rapidapi.com/airport?iata=' + city, options)
+            .then(response => response.json())
+            .then(response => {
+                renderAPI()
+                console.log(response)
+            })
+            .catch(err => console.error(err));
     }
 
 
-// function DisplayCityBookings() {
-//     output = data.map((data) =>
-//         <li>
-//             {data}
-//         </li>
-//     )
-//     return output
-// }
+    async function createFavorite(destination,price,airlineCode,departureDate,id) {
+        if (localStorage.getItem('loginState')) {
+            const favorite = {
+                favoritedBy: localStorage.getItem('user'),
+                departingFrom: city,
+                arrivingAt: destination,
+                airline: airlineCode,
+                price: price,
+                departure:departureDate
+            }
+            console.log(favorite.favoritedBy, favorite.departingFrom, favorite.arrivingAt,favorite.airline, favorite.price,favorite.departure)
 
-return (
-    <div id="airline">
+                await fetch("http://localhost:3000/Favorite/add", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(favorite),
+            }).catch((error) => {
+                window.alert(error);
+                return;
+            });
+            document.getElementById(id).innerHTML="Unfavorite"
+            
+            
         
-    </div>
-)
+        } else {
+            console.log("user not logged in")
+        }
+    }
+
+    return (
+    <Row lg={2}>
+            <Col lg={2}>
+                    <Card style={{
+                        width: '18rem',
+                        left: '10px',
+
+                    }}>
+                        <Card.Header>
+                            <button className="fav1"
+                                onClick={() => {
+                                    createFavorite(destination[0],price[0],airlineCode[0],departureDate[0],"fav1")
+                                }}
+                            >
+                                Unfavorite
+                            </button>
+                        </Card.Header>
+                        <Card.Title>
+                           <strong>{city + ' -> '}<span id="destination" /></strong>
+                        </Card.Title>
+                        <ListGroup.Item id="departuredate">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="price">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="airline">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="website">Loading...</ListGroup.Item>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={{
+                        width: '18rem',
+
+                    }}>
+                        <Card.Header>
+                            <button className="fav2"
+                                onClick={() => {
+                                    createFavorite(destination[1],price[1],airlineCode[1],departureDate[1],"fav2")
+                                }}
+                            >
+                                Unfavorite
+                            </button>
+                        </Card.Header>
+                        <Card.Title>
+                            <strong>{city + ' -> '} <span id="destination2" /></strong>
+                        </Card.Title>
+                        <ListGroup.Item id="departuredate2">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="price2">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="airline2">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="website2">Loading...</ListGroup.Item>
+                    </Card>
+                </Col>
+            </Row>
+
+    )
+    async function renderAPI() {
+        document.getElementById("airline").innerHTML = airline[1]
+        document.getElementById("destination").innerHTML = destination[0]
+        document.getElementById("destination2").innerHTML = destination[1]
+    }
 }
 
-async function renderAPI(airline) {
-document.getElementById("airline").innerHTML = airline
-}
+
 
 
 export default CityBookings

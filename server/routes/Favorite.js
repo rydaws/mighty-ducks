@@ -35,18 +35,36 @@ favoriteRoutes.route("/Favorite/:user").get(function (req, res) {
  });
 
 
-// This section will help you get a single record by id
-favoriteRoutes.route("/Favorite/:id").get(function (req, res) {
- let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId(req.params.id) };
- db_connect
-   .collection("favorites")
-   .findOne(myquery, function (err, result) {
-     if (err) throw err;
-     res.json(result);
-   });
-});
+// // This section will help you get a single record by id
+// favoriteRoutes.route("/Favorite/:id").get(function (req, res) {
+//  let db_connect = dbo.getDb();
+//  let myquery = { _id: ObjectId(req.params.id) };
+//  db_connect
+//    .collection("favorites")
+//    .findOne(myquery, function (err, result) {
+//      if (err) throw err;
+//      res.json(result);
+//    });
+// });
  
+favoriteRoutes.route("/Favorite/:Find").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myobj = {
+    favoritedBy:String(req.body.favoritedBy),
+    Arrival: String(req.body.arrivingAt),
+    Departure: String(req.body.departingFrom),
+    Airline: String(req.body.airline),
+    Price: String(req.body.price),
+    departureDate: String(req.body.departure)
+  };
+  db_connect
+    .collection("favorites")
+    .deleteOne(myobj, function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+ });
+
 // This section will help you create a new record or delete a record if it is already in the table.
 favoriteRoutes.route("/Favorite/add").post(function (req, response) {
  let db_connect = dbo.getDb();
@@ -54,8 +72,9 @@ favoriteRoutes.route("/Favorite/add").post(function (req, response) {
    favoritedBy:req.body.favoritedBy,
    Arrival: req.body.arrivingAt,
    Departure: req.body.departingFrom,
-   Airline:req.body.airline,
+   Airline: req.body.airline,
    Price: req.body.price,
+   departureDate: req.body.departure
  };
  db_connect.collection("favorites").find
   
@@ -65,11 +84,12 @@ favoriteRoutes.route("/Favorite/add").post(function (req, response) {
   });
 });
 
+
 // This section will help you delete a record
 favoriteRoutes.route("/:id").delete((req, response) => {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
-  db_connect.collection("login").deleteOne(myquery, function (err, obj) {
+  db_connect.collection("favorites").deleteOne(myquery, function (err, obj) {
     if (err) throw err;
     console.log("1 document deleted");
     response.json(obj);
