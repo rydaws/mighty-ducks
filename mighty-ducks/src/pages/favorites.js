@@ -54,7 +54,7 @@ export default function FavList() {
 
  // This method will delete a record
  async function deleteRecord(id) {
-  const response=await fetch(`http://localhost:3000/${id}`, {
+  const response=await fetch(`http://localhost:3000/Favorite/${id}`, {
     method: "DELETE",
   });
   const newRecords = favorite.filter((el) => el._id !== id);
