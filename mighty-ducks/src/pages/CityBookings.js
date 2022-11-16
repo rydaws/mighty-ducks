@@ -14,6 +14,8 @@ function CityBookings() {
     var departureDate = []
     var airlineCode = []
     var destination = []
+    var expireDate = []
+    var expire = []
     var website
 
     window.onload = function CityAPI() {
@@ -30,8 +32,9 @@ function CityBookings() {
         fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/city-directions?currency=USD&origin=' + city, options)
             .then(response => response.json())
             .then(response => {
+                console.log(response)
                 let dataAPI = Object.values(response.data)
-
+                
                 for (let i = 0; i < 15; i++) {
                     price[i] = dataAPI[i].price
                     departure[i] = dataAPI[i].departure_at
@@ -40,6 +43,8 @@ function CityBookings() {
                     flight_number[i] = dataAPI[i].flight_number
                     airlineCode[i] = airline[i].concat(flight_number[i])
                     destination[i] = dataAPI[i].destination
+                    expireDate[i] = dataAPI[i].expires_at
+                    expire[i] = expireDate[i].substr(0, 10)
                 }
                 console.log(destination)
                 AirportAPI()
@@ -124,6 +129,7 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate0">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price0">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline0">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="expire0">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -146,6 +152,7 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate1">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price1">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline1">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="expire1">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -168,6 +175,7 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate2">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price2">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline2">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="expire2">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -190,6 +198,7 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate3">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price3">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline3">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="expire3">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -212,6 +221,7 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate4">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price4">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline4">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="expire4">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
             </Row>
@@ -238,6 +248,7 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate5">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price5">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline5">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="expire5">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -260,6 +271,7 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate6">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price6">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline6">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="expire6">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -282,6 +294,7 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate7">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price7">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline7">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="expire7">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -304,6 +317,7 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate8">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price8">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline8">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="expire8">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -326,6 +340,7 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate9">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price9">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline9">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="expire9">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
             </Row>
@@ -336,42 +351,52 @@ function CityBookings() {
         document.getElementById("departuredate0").innerHTML = "Departure: " + departureDate[0]
         document.getElementById("price0").innerHTML = "Price: $" + price[0]
         document.getElementById("airline0").innerHTML = "Airline Code: " + airlineCode[0]
+        document.getElementById("expire0").innerHTML = "Price Changes: " + expire[0]
         document.getElementById("destination1").innerHTML = destination[1]
         document.getElementById("departuredate1").innerHTML = "Departure: " + departureDate[1]
         document.getElementById("price1").innerHTML = "Price: $" + price[1]
         document.getElementById("airline1").innerHTML = "Airline Code: " + airlineCode[1]
+        document.getElementById("expire1").innerHTML = "Price Changes: " + expire[1]
         document.getElementById("destination2").innerHTML = destination[2]
         document.getElementById("departuredate2").innerHTML = "Departure: " + departureDate[2]
         document.getElementById("price2").innerHTML = "Price: $" + price[2]
         document.getElementById("airline2").innerHTML = "Airline Code: " + airlineCode[2]
+        document.getElementById("expire2").innerHTML = "Price Changes: " + expire[2]
         document.getElementById("destination3").innerHTML = destination[3]
         document.getElementById("departuredate3").innerHTML = "Departure: " + departureDate[3]
         document.getElementById("price3").innerHTML = "Price: $" + price[3]
         document.getElementById("airline3").innerHTML = "Airline Code: " + airlineCode[3]
+        document.getElementById("expire3").innerHTML = "Price Changes: " + expire[3]
         document.getElementById("destination4").innerHTML = destination[4]
         document.getElementById("departuredate4").innerHTML = "Departure: " + departureDate[4]
         document.getElementById("price4").innerHTML = "Price: $" + price[4]
         document.getElementById("airline4").innerHTML = "Airline Code: " + airlineCode[4]
+        document.getElementById("expire4").innerHTML = "Price Changes: " + expire[4]
         document.getElementById("destination5").innerHTML = destination[5]
         document.getElementById("departuredate5").innerHTML = "Departure: " + departureDate[5]
         document.getElementById("price5").innerHTML = "Price: $" + price[5]
         document.getElementById("airline5").innerHTML = "Airline Code: " + airlineCode[5]
+        document.getElementById("expire5").innerHTML = "Price Changes: " + expire[5]
         document.getElementById("destination6").innerHTML = destination[6]
         document.getElementById("departuredate6").innerHTML = "Departure: " + departureDate[6]
         document.getElementById("price6").innerHTML = "Price: $" + price[6]
         document.getElementById("airline6").innerHTML = "Airline Code: " + airlineCode[6]
+        document.getElementById("expire6").innerHTML = "Price Changes: " + expire[6]
         document.getElementById("destination7").innerHTML = destination[7]
         document.getElementById("departuredate7").innerHTML = "Departure: " + departureDate[7]
         document.getElementById("price7").innerHTML = "Price: $" + price[7]
         document.getElementById("airline7").innerHTML = "Airline Code: " + airlineCode[7]
+        document.getElementById("expire7").innerHTML = "Price Changes: " + expire[7]
         document.getElementById("destination8").innerHTML = destination[8]
         document.getElementById("departuredate8").innerHTML = "Departure: " + departureDate[8]
         document.getElementById("price8").innerHTML = "Price: $" + price[8]
         document.getElementById("airline8").innerHTML = "Airline Code: " + airlineCode[8]
+        document.getElementById("expire8").innerHTML = "Price Changes: " + expire[8]
         document.getElementById("destination9").innerHTML = destination[9]
         document.getElementById("departuredate9").innerHTML = "Departure: " + departureDate[9]
         document.getElementById("price9").innerHTML = "Price: $" + price[9]
         document.getElementById("airline9").innerHTML = "Airline Code: " + airlineCode[9]
+        document.getElementById("expire9").innerHTML = "Price Changes: " + expire[9]
         document.getElementById("topWebsite").setAttribute("href", website)
     }
 }
