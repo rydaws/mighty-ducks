@@ -68,8 +68,9 @@ function CityBookings() {
 
 
     return (
-    <Row lg={2}>
-            <Col lg={2}>
+        <>
+    <Row>
+            <Col>
                     <Card style={{
                         width: '18rem',
                         left: '10px',
@@ -186,6 +187,126 @@ function CityBookings() {
                     </Card>
                 </Col>
             </Row>
+            <br /><br />
+            <Row>
+            <Col>
+                    <Card style={{
+                        width: '18rem',
+                        left: '10px',
+
+                    }}>
+                        <Card.Header>
+                            <button className="btn btn-link"
+                                onClick={() => {
+                                    // props.deleteRecord(props.favorite._id);
+                                }}
+                            >
+                                Unfavorite
+                            </button>
+                        </Card.Header>
+                        <Card.Title>
+                           <strong>{city + ' -> '}<span id="destination5"/></strong>
+                        </Card.Title>
+                        <ListGroup.Item id="departuredate5">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="price5">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="airline5">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="website5">Loading...</ListGroup.Item>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={{
+                        width: '18rem',
+
+                    }}>
+                        <Card.Header>
+                            <button className="btn btn-link"
+                                onClick={() => {
+                                    // props.deleteRecord(props.favorite._id);
+                                }}
+                            >
+                                Unfavorite
+                            </button>
+                        </Card.Header>
+                        <Card.Title>
+                            <strong>{city + ' -> '} <span id="destination6"/></strong>
+                        </Card.Title>
+                        <ListGroup.Item id="departuredate6">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="price6">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="airline6">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="website6">Loading...</ListGroup.Item>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={{
+                        width: '18rem',
+
+                    }}>
+                        <Card.Header>
+                            <button className="btn btn-link"
+                                onClick={() => {
+                                    // props.deleteRecord(props.favorite._id);
+                                }}
+                            >
+                                Unfavorite
+                            </button>
+                        </Card.Header>
+                        <Card.Title>
+                            <strong>{city + ' -> '} <span id="destination7"/></strong>
+                        </Card.Title>
+                        <ListGroup.Item id="departuredate7">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="price7">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="airline7">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="website7">Loading...</ListGroup.Item>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={{
+                        width: '18rem',
+
+                    }}>
+                        <Card.Header>
+                            <button className="btn btn-link"
+                                onClick={() => {
+                                    // props.deleteRecord(props.favorite._id);
+                                }}
+                            >
+                                Unfavorite
+                            </button>
+                        </Card.Header>
+                        <Card.Title>
+                            <strong>{city + ' -> '} <span id="destination8"/></strong>
+                        </Card.Title>
+                        <ListGroup.Item id="departuredate8">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="price8">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="airline8">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="website8">Loading...</ListGroup.Item>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={{
+                        width: '18rem',
+
+                    }}>
+                        <Card.Header>
+                            <button className="btn btn-link"
+                                onClick={() => {
+                                    // props.deleteRecord(props.favorite._id);
+                                }}
+                            >
+                                Unfavorite
+                            </button>
+                        </Card.Header>
+                        <Card.Title>
+                            <strong>{city + ' -> '} <span id="destination9"/></strong>
+                        </Card.Title>
+                        <ListGroup.Item id="departuredate9">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="price9">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="airline9">Loading...</ListGroup.Item>
+                        <ListGroup.Item id="website9">Loading...</ListGroup.Item>
+                    </Card>
+                </Col>
+            </Row>
+            </>
     )
     async function renderAPI() {
         document.getElementById("destination0").innerHTML = destination[0]
@@ -213,6 +334,32 @@ function CityBookings() {
         document.getElementById("price4").innerHTML = "Price: $" + price[4]
         document.getElementById("airline4").innerHTML = "Airline Code: " + airlineCode[4]
         document.getElementById("website4").innerHTML = "Website: " + website
+
+        document.getElementById("destination5").innerHTML = destination[5]
+        document.getElementById("departuredate5").innerHTML = "Departure: " + departureDate[5]
+        document.getElementById("price5").innerHTML = "Price: $" + price[5]
+        document.getElementById("airline5").innerHTML = "Airline Code: " + airlineCode[5]
+        document.getElementById("website5").innerHTML = "Website: " + website
+        document.getElementById("destination6").innerHTML = destination[6]
+        document.getElementById("departuredate6").innerHTML = "Departure: " + departureDate[6]
+        document.getElementById("price6").innerHTML = "Price: $" + price[6]
+        document.getElementById("airline6").innerHTML = "Airline Code: " + airlineCode[6]
+        document.getElementById("website6").innerHTML = "Website: " + website
+        document.getElementById("destination7").innerHTML = destination[7]
+        document.getElementById("departuredate7").innerHTML = "Departure: " + departureDate[7]
+        document.getElementById("price7").innerHTML = "Price: $" + price[7]
+        document.getElementById("airline7").innerHTML = "Airline Code: " + airlineCode[7]
+        document.getElementById("website7").innerHTML = "Website: " + website
+        document.getElementById("destination8").innerHTML = destination[8]
+        document.getElementById("departuredate8").innerHTML = "Departure: " + departureDate[8]
+        document.getElementById("price8").innerHTML = "Price: $" + price[8]
+        document.getElementById("airline8").innerHTML = "Airline Code: " + airlineCode[8]
+        document.getElementById("website8").innerHTML = "Website: " + website
+        document.getElementById("destination9").innerHTML = destination[9]
+        document.getElementById("departuredate9").innerHTML = "Departure: " + departureDate[9]
+        document.getElementById("price9").innerHTML = "Price: $" + price[9]
+        document.getElementById("airline9").innerHTML = "Airline Code: " + airlineCode[9]
+        document.getElementById("website9").innerHTML = "Website: " + website
     }
 }
 
