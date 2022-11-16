@@ -32,7 +32,7 @@ function multiCarousel() {
       localStorage.setItem('_cityChoice', cityChoice);
       window.location.href = "/CityBookings"
     } else if (val === "NewYork") {
-      cityChoice = "NYC"
+      cityChoice = "JFK"
       console.log(cityChoice)
       localStorage.setItem('_cityChoice', cityChoice);
       window.location.href = "/CityBookings"

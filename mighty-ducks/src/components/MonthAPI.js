@@ -1,7 +1,9 @@
 
 
 function MonthAPI() {
-    var months = []
+    var months
+    var origin = localStorage.getItem('_userOrigin');
+    var destination = localStorage.getItem('_userDestination');
     const options = {
         method: 'GET',
         headers: {
@@ -14,9 +16,14 @@ function MonthAPI() {
     fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v1/prices/calendar?calendar_type=departure_date&destination=' + destination + '&origin=' + origin + '&depart_date=2020-11-18&currency=USD', options)
         .then(response => response.json())
         .then(response => {
-            const months = Object.keys(response.data)
+            months = Object.keys(response.data)
             console.log(response)
+           
         })
 
         .catch(err => console.error(err));
+
+        return months
 }
+
+export default MonthAPI
