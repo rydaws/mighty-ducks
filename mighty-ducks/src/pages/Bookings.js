@@ -11,7 +11,6 @@ var destination = localStorage.getItem('_userDestination').toUpperCase();
 
 function APIfetch() {
     var departure = []
-    var airlineName = []
     var airlineCode = []
     var price = []
     var airline = []
@@ -32,13 +31,8 @@ function APIfetch() {
     var monthlyExpire = []
     var monthlyExpireDate = []
     var website
-    var monthlyWebsite
-    var futureDate = new Date(2022, 12, 1).toISOString().slice(0, 10)
-    var currDate = new Date()
+
     window.onload = function PriceAPIs() {
-
-        
-
 
         const options = {
             method: 'GET',
@@ -165,6 +159,7 @@ function APIfetch() {
 
     return (
         <>
+        <a id="website">Link to Website</a>
             <h2>Found 2 Best Prices</h2>
             <Row lg={2}>
                 <Col lg={2}>
@@ -521,6 +516,7 @@ function APIfetch() {
         document.getElementById("monthlyairline10").innerHTML = "Airline Code: " + monthlyAirlineCode[10]
         document.getElementById("monthlydeparturedate10").innerHTML = "Departure: " + monthlyDepartureDate[10]
         document.getElementById("monthlyexpire10").innerHTML = "Price Changes: " + monthlyExpire[10]
+        
 
     } 
 }
