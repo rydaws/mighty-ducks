@@ -6,8 +6,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 
-var origin = localStorage.getItem('_userOrigin').toUpperCase();
-var destination = localStorage.getItem('_userDestination').toUpperCase();
 
 function APIfetch() {
     var departure = []
@@ -32,6 +30,8 @@ function APIfetch() {
     var monthlyExpireDate = []
     var website
 
+    var origin = localStorage.getItem('_userOrigin').toUpperCase();
+    var destination = localStorage.getItem('_userDestination').toUpperCase();
     window.onload = function PriceAPIs() {
 
         const options = {
