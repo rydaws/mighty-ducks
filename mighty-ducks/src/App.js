@@ -1,16 +1,13 @@
-
 import AirNavBar from './components/AirNavBar';
 import { Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
-import About from './pages/About'
-import History from './pages/History'
 import Bookings from './pages/Bookings'
-
-import Favorites from './pages/Favorites'
+import CityBookings from './pages/CityBookings'
 import Login from './components/Login'
 import RecordList from "./components/recordList";
 import Signup from "./components/signup";
 import Logout from "./components/Logout";
+import Favorites from './pages/favorites'
 
 function App() {
   return (
@@ -20,13 +17,12 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/Home" element={<Home />} />
             <Route exact path="/Record" element={<RecordList />} />
-            <Route path="/About" element={<About />} />
-            <Route path="/History" element={<History />} />
+            <Route path="/CityBookings" element={<CityBookings />} />
             <Route path="/Bookings" element={<Bookings />} />
-            <Route path="/Favorites" element={<Favorites />}/>
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Logout" element={<Logout />} />
+            <Route path="/Favorites" element={<Favorites />} />
       </Routes>   
     </div>
   );
