@@ -51,11 +51,13 @@ export async function updateNavBar() {
   // none = HIDDEN
   // block = SHOWN
   if (loginState === "true") {
+    document.getElementById("favorites").style.display="block";
     document.getElementById("session").innerHTML = "Hello, " + user + "!";
     document.getElementById("log").style.display = "none";
     document.getElementById("sign").style.display = "none";
     document.getElementById("out").style.display = "block";
   } else {
+    document.getElementById("favorites").style.display="none";
     document.getElementById("session").innerHTML = "";
     document.getElementById("log").style.display = "block";
     document.getElementById("sign").style.display = "block";
