@@ -2,7 +2,7 @@ import React from "react";
 import InputBar from '../components/searchBar'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col'
+import Col from 'react-bootstrap/Col';
 import Container from "react-bootstrap/Container";
 import 'react-multi-carousel/lib/styles.css';
 import MultiCarousel from '../components/MultiCarousel'
