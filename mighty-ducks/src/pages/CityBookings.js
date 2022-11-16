@@ -100,6 +100,8 @@ function CityBookings() {
 
     return (
         <>
+                <h2>Prices Found by City</h2>
+                <a id="topWebsite">Link to Airport</a>
     <Row>
             <Col>
                     <Card style={{
@@ -108,12 +110,12 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="fav1"
+                            <button id="fav1"
                                 onClick={() => {
                                     createFavorite(destination[0],price[0],airlineCode[0],departureDate[0],"fav1")
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -122,7 +124,6 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate0">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price0">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline0">Loading...</ListGroup.Item>
-                        <ListGroup.Item id="website0">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -131,12 +132,12 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="fav2"
+                            <button id="fav2"
                                 onClick={() => {
                                     createFavorite(destination[1],price[1],airlineCode[1],departureDate[1],"fav2")
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -145,7 +146,6 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate1">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price1">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline1">Loading...</ListGroup.Item>
-                        <ListGroup.Item id="website1">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -154,12 +154,12 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav3"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(destination[2],price[2],airlineCode[2],departureDate[2],"fav3")
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -168,7 +168,6 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate2">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price2">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline2">Loading...</ListGroup.Item>
-                        <ListGroup.Item id="website2">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -177,12 +176,12 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button className="searchButton" id="fav4"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(destination[3],price[3],airlineCode[3],departureDate[3],"fav4")
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -191,7 +190,6 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate3">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price3">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline3">Loading...</ListGroup.Item>
-                        <ListGroup.Item id="website3">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -200,12 +198,12 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav5"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(destination[4],price[4],airlineCode[4],departureDate[4],"fav5")
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -214,7 +212,6 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate4">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price4">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline4">Loading...</ListGroup.Item>
-                        <ListGroup.Item id="website4">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
             </Row>
@@ -227,12 +224,12 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav6"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(destination[5],price[5],airlineCode[5],departureDate[5],"fav6")
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -241,7 +238,6 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate5">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price5">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline5">Loading...</ListGroup.Item>
-                        <ListGroup.Item id="website5">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -250,12 +246,12 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav7"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(destination[6],price[6],airlineCode[6],departureDate[6],"fav7")
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -264,7 +260,6 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate6">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price6">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline6">Loading...</ListGroup.Item>
-                        <ListGroup.Item id="website6">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -273,12 +268,12 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav8"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(destination[7],price[7],airlineCode[7],departureDate[7],"fav8")
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -287,7 +282,6 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate7">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price7">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline7">Loading...</ListGroup.Item>
-                        <ListGroup.Item id="website7">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -296,12 +290,12 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav9"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(destination[8],price[8],airlineCode[8],departureDate[8],"fav9")
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -310,7 +304,6 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate8">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price8">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline8">Loading...</ListGroup.Item>
-                        <ListGroup.Item id="website8">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
                 <Col>
@@ -319,12 +312,12 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav10"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(destination[9],price[9],airlineCode[9],departureDate[9],"fav10")
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -333,7 +326,6 @@ function CityBookings() {
                         <ListGroup.Item id="departuredate9">Loading...</ListGroup.Item>
                         <ListGroup.Item id="price9">Loading...</ListGroup.Item>
                         <ListGroup.Item id="airline9">Loading...</ListGroup.Item>
-                        <ListGroup.Item id="website9">Loading...</ListGroup.Item>
                     </Card>
                 </Col>
             </Row>
@@ -344,53 +336,43 @@ function CityBookings() {
         document.getElementById("departuredate0").innerHTML = "Departure: " + departureDate[0]
         document.getElementById("price0").innerHTML = "Price: $" + price[0]
         document.getElementById("airline0").innerHTML = "Airline Code: " + airlineCode[0]
-        document.getElementById("website0").innerHTML = "Website: " + website
         document.getElementById("destination1").innerHTML = destination[1]
         document.getElementById("departuredate1").innerHTML = "Departure: " + departureDate[1]
         document.getElementById("price1").innerHTML = "Price: $" + price[1]
         document.getElementById("airline1").innerHTML = "Airline Code: " + airlineCode[1]
-        document.getElementById("website1").innerHTML = "Website: " + website
         document.getElementById("destination2").innerHTML = destination[2]
         document.getElementById("departuredate2").innerHTML = "Departure: " + departureDate[2]
         document.getElementById("price2").innerHTML = "Price: $" + price[2]
         document.getElementById("airline2").innerHTML = "Airline Code: " + airlineCode[2]
-        document.getElementById("website2").innerHTML = "Website: " + website
         document.getElementById("destination3").innerHTML = destination[3]
         document.getElementById("departuredate3").innerHTML = "Departure: " + departureDate[3]
         document.getElementById("price3").innerHTML = "Price: $" + price[3]
         document.getElementById("airline3").innerHTML = "Airline Code: " + airlineCode[3]
-        document.getElementById("website3").innerHTML = "Website: " + website
         document.getElementById("destination4").innerHTML = destination[4]
         document.getElementById("departuredate4").innerHTML = "Departure: " + departureDate[4]
         document.getElementById("price4").innerHTML = "Price: $" + price[4]
         document.getElementById("airline4").innerHTML = "Airline Code: " + airlineCode[4]
-        document.getElementById("website4").innerHTML = "Website: " + website
-
         document.getElementById("destination5").innerHTML = destination[5]
         document.getElementById("departuredate5").innerHTML = "Departure: " + departureDate[5]
         document.getElementById("price5").innerHTML = "Price: $" + price[5]
         document.getElementById("airline5").innerHTML = "Airline Code: " + airlineCode[5]
-        document.getElementById("website5").innerHTML = "Website: " + website
         document.getElementById("destination6").innerHTML = destination[6]
         document.getElementById("departuredate6").innerHTML = "Departure: " + departureDate[6]
         document.getElementById("price6").innerHTML = "Price: $" + price[6]
         document.getElementById("airline6").innerHTML = "Airline Code: " + airlineCode[6]
-        document.getElementById("website6").innerHTML = "Website: " + website
         document.getElementById("destination7").innerHTML = destination[7]
         document.getElementById("departuredate7").innerHTML = "Departure: " + departureDate[7]
         document.getElementById("price7").innerHTML = "Price: $" + price[7]
         document.getElementById("airline7").innerHTML = "Airline Code: " + airlineCode[7]
-        document.getElementById("website7").innerHTML = "Website: " + website
         document.getElementById("destination8").innerHTML = destination[8]
         document.getElementById("departuredate8").innerHTML = "Departure: " + departureDate[8]
         document.getElementById("price8").innerHTML = "Price: $" + price[8]
         document.getElementById("airline8").innerHTML = "Airline Code: " + airlineCode[8]
-        document.getElementById("website8").innerHTML = "Website: " + website
         document.getElementById("destination9").innerHTML = destination[9]
         document.getElementById("departuredate9").innerHTML = "Departure: " + departureDate[9]
         document.getElementById("price9").innerHTML = "Price: $" + price[9]
         document.getElementById("airline9").innerHTML = "Airline Code: " + airlineCode[9]
-        document.getElementById("website9").innerHTML = "Website: " + website
+        document.getElementById("topWebsite").setAttribute("href", website)
     }
 }
 
