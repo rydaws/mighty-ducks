@@ -22,7 +22,6 @@ function multiCarousel() {
   };
 
   function handleButton(val) {
-    
 
     if (val === undefined) {
       console.log("ERROR");
@@ -43,6 +42,11 @@ function multiCarousel() {
       window.location.href = "/CityBookings"
     }else if (val === "Chicago") {
       cityChoice = "ORD"
+      console.log(cityChoice)
+      localStorage.setItem('_cityChoice', cityChoice);
+      window.location.href = "/CityBookings"
+    }else if (val === "Florida") {
+      cityChoice = "MIA"
       console.log(cityChoice)
       localStorage.setItem('_cityChoice', cityChoice);
       window.location.href = "/CityBookings"
@@ -107,52 +111,8 @@ function multiCarousel() {
                 </Card.ImgOverlay>
               </Card>
               </div>
-
         </Carousel >
-     
-
-
-
-        // <div className='gap'>
-        //     <Rerousel interval={1000}>
-        //         <Card style={{
-        //           width: '18rem',
-        //           gap: '10px'
-        //         }}>
-        //           <Card.Img className="city" variant="bottom" src="Atlanta.jpg" />
-        //           <Card.ImgOverlay>
-        //             <Card.Title><p>Atlanta</p></Card.Title>
-        //           </Card.ImgOverlay>
-        //         </Card>
-
-        //       <Card style={{
-        //         width: '18rem',
-        //       }}>
-        //         <Card.Img className="city" variant="bottom" src="New York.jpg" />
-        //         <Card.ImgOverlay>
-        //           <Card.Title><p>New York</p></Card.Title>
-        //         </Card.ImgOverlay>
-        //       </Card>
-
-        //       <Card style={{
-        //         width: '18rem',
-        //       }}>
-        //         <Card.Img className="city" variant="bottom" src="Los Angeles.jpg" />
-        //         <Card.ImgOverlay>
-        //           <Card.Title><p>Los Angeles</p></Card.Title>
-        //         </Card.ImgOverlay>
-        //       </Card>
-
-        //       <Card style={{
-        //         width: '18rem',
-        //       }}>
-        //         <Card.Img className="city" variant="bottom" src="Chicago.jpg" />
-        //         <Card.ImgOverlay>
-        //           <Card.Title><p>Chicago</p></Card.Title>
-        //         </Card.ImgOverlay>
-        //       </Card>
-        //     </Rerousel>
-            // </div>
     )
+
 }
 export default multiCarousel
