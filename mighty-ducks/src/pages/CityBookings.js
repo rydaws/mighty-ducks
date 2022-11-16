@@ -65,6 +65,37 @@ function CityBookings() {
     }
 
 
+    async function createFavorite(destination,price,airlineCode,departureDate,id) {
+        if (localStorage.getItem('loginState')) {
+            const favorite = {
+                favoritedBy: localStorage.getItem('user'),
+                departingFrom: city,
+                arrivingAt: destination,
+                airline: airlineCode,
+                price: price,
+                departure:departureDate
+            }
+            console.log(favorite.favoritedBy, favorite.departingFrom, favorite.arrivingAt,favorite.airline, favorite.price,favorite.departure)
+
+                await fetch("http://localhost:3000/Favorite/add", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(favorite),
+            }).catch((error) => {
+                window.alert(error);
+                return;
+            });
+            document.getElementById(id).innerHTML="Unfavorite"
+            
+            
+        
+        } else {
+            console.log("user not logged in")
+        }
+    }
+
     return (
     <Row lg={2}>
             <Col lg={2}>
@@ -74,9 +105,9 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button className="fav1"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(destination[0],price[0],airlineCode[0],departureDate[0],"fav1")
                                 }}
                             >
                                 Unfavorite
@@ -97,9 +128,9 @@ function CityBookings() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button className="fav2"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(destination[1],price[1],airlineCode[1],departureDate[1],"fav2")
                                 }}
                             >
                                 Unfavorite

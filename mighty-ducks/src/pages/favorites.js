@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from "react";
+import Card from "react-bootstrap/Card"
 
  
 const Favorite = (props) => (
- <tr>
-  <td>{props.favorite.Departure}</td>
-  <td>{props.favorite.Arrival}</td>
-  <td>{props.favorite.Airline}</td>
-  <td>{props.favorite.Price}</td>
-  <td>
-     <button className="btn btn-link"
+  <Card style={{
+    width: '18rem',
+    left: '10px',
+  }}>
+    <Card.Header>
+      <button id="unfav"
        onClick={() => {
          props.deleteRecord(props.favorite._id);
        }}
      >
        Unfavorite
-     </button>
+     </button></Card.Header>
+  <td>Departing from: {props.favorite.Departure}</td>
+  <td>Arriving At: {props.favorite.Arrival}</td>
+  <td>Price: {props.favorite.Price}</td>
+  <td>Airline: {props.favorite.Airline}</td>
+  <td>Flight leaves on: {props.favorite.departureDate}</td>
+  <td>
+     
    </td>
- </tr>
+   </Card>
 );
  
 export default function FavList() {
@@ -47,10 +54,9 @@ export default function FavList() {
 
  // This method will delete a record
  async function deleteRecord(id) {
-  await fetch(`http://localhost:3000/${id}`, {
+  const response=await fetch(`http://localhost:3000/${id}`, {
     method: "DELETE",
   });
-
   const newRecords = favorite.filter((el) => el._id !== id);
   setFav(newRecords);
 }
@@ -72,13 +78,10 @@ export default function FavList() {
   <section>
    <div>
      <h3>Favorites</h3>
-     <table className="favoriteDisplay" style={{ marginTop: 20 }}>
+     <table className="favoriteDisplay" style={{ marginTop: 30, }}>
        <thead>
          <tr>
-           <th>Departure</th>
-           <th>Arrival</th>
-           <th>Price</th>
-           <th>Airline</th>
+           
          </tr>
        </thead>
        <tbody>{favList()}</tbody>
