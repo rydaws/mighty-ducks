@@ -165,20 +165,22 @@ function APIfetch() {
             .catch(err => console.error(err));
     }
 
-    async function createFavorite() {
+    async function createFavorite(price,airlineCode,departureDate,id) {
         if (localStorage.getItem('loginState')) {
             const favorite = {
                 favoritedBy: localStorage.getItem('user'),
-                departingFrom: document.getElementById("origin").textContent,
-                arrivingAt: document.getElementById("destination").textContent,
-                airline: airlineName[0],
-                price: price[0],
-
+                departingFrom: origin,
+                arrivingAt: destination,
+                airline: airlineCode,
+                price: price,
+                departure:departureDate
             }
-            console.log(favorite.favoritedBy, favorite.airline, favorite.departingFrom, favorite.arrivingAt, favorite.price)
-
-            // if(!checkData){
-            await fetch("http://localhost:3000/Favorite/add", {
+            if(document.getElementById(id).innerHTML=="Favorited"){
+                window.alert("flight already favorited")
+            }else{
+                document.getElementById(id).innerHTML="Favorited"
+                console.log(favorite.favoritedBy, favorite.departingFrom, favorite.arrivingAt,favorite.airline, favorite.price,favorite.departure)
+                await fetch("http://localhost:3000/Favorite/add", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -188,7 +190,7 @@ function APIfetch() {
                 window.alert(error);
                 return;
             });
-            //}
+            }
         } else {
             console.log("user not logged in")
         }
@@ -206,12 +208,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="low1"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(price[0],airlineCode[0],departureDate[0],"low1")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -229,12 +232,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="low2"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(price[1],airlineCode[1],departureDate[1],"low2")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -257,12 +261,13 @@ function APIfetch() {
                         left: '10px'
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav1"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(monthlyPrice[1],monthlyAirlineCode[1],monthlyDepartureDate[1],"fav1")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -280,12 +285,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav2"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(monthlyPrice[2],monthlyAirlineCode[2],monthlyDepartureDate[2],"fav2")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -303,12 +309,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav3"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(monthlyPrice[3],monthlyAirlineCode[3],monthlyDepartureDate[3],"fav3")
+                                   
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -326,12 +333,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav4"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(monthlyPrice[4],monthlyAirlineCode[4],monthlyDepartureDate[4],"fav4")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -349,12 +357,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav5"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(monthlyPrice[5],monthlyAirlineCode[5],monthlyDepartureDate[5],"fav5")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -376,12 +385,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav6"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(monthlyPrice[6],monthlyAirlineCode[6],monthlyDepartureDate[5],"fav6")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -399,12 +409,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav7"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(monthlyPrice[7],monthlyAirlineCode[7],monthlyDepartureDate[7],"fav7")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -422,12 +433,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav8"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(monthlyPrice[8],monthlyAirlineCode[8],monthlyDepartureDate[8],"fav8")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -445,12 +457,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav9"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(monthlyPrice[9],monthlyAirlineCode[9],monthlyDepartureDate[9],"fav9")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
@@ -468,12 +481,13 @@ function APIfetch() {
 
                     }}>
                         <Card.Header>
-                            <button className="btn btn-link"
+                            <button id="fav10"
                                 onClick={() => {
-                                    // props.deleteRecord(props.favorite._id);
+                                    createFavorite(monthlyPrice[10],monthlyAirlineCode[10],monthlyDepartureDate[10],"fav10")
+                                    
                                 }}
                             >
-                                Unfavorite
+                                Favorite
                             </button>
                         </Card.Header>
                         <Card.Title>
