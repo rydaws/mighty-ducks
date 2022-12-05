@@ -114,7 +114,7 @@ async function autocomplete(input, arr) {
     if (e.keyCode === 40) {
       currentFocus++;
       addActive(x);
-    } else if (e.keyCode === 38) { //up
+    } else if (e.keyCode === 38) {
       currentFocus--;
       addActive(x);
     } else if (e.keyCode === 13) {
