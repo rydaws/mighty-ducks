@@ -11,9 +11,9 @@ First, clone the github repository to your local machine from https://github.com
 
 After cloning, open the repository in VSCode and open a terminal and use ```cd mighty-ducks``` to get into the correct folder.
 
-Once you are in the second mighty-ducks folder, use ```npm install``` to install all dependencies.
+Once you are in the second mighty-ducks folder, use ```npm install``` to install dependencies.
 
-Then ```cd ..``` and ```cd server``` to the server folder and use ```node server.js``` to start the MongoDB database.
+Then ```cd ..``` and ```cd server``` to the server folder and use ```npm install``` again to install dependencies for the server, then ```node server.js``` to start the MongoDB database.
 
 Finally, ```cd ..``` back, then ```cd mighty-ducks``` to the second mighty-ducks folder and use ```npm start``` to locally start the website, making sure to type ```y``` to allow the website to start on a different port.
 
